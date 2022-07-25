@@ -1,0 +1,89 @@
+.signin_body {
+    width: 1848px;
+    height: 968px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("signin_bg_pola.png");
+    background-size: 1848px 1000px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-repeat: no-repeat;
+}
+
+.signin_text {
+    margin-top: 230px;
+    margin-left: 1100px;
+    color: white;
+    font-size: 450%;
+    font-weight: bolder;
+}
+
+.signin_text_again {
+    margin-top: -160px;
+    margin-left: 1380px;
+    color: #FFC18E;
+    font-size: 450%;
+    font-weight: bolder;
+    position: absolute;
+}
+
+.signin_text2 {
+    margin-top: -40px;
+    margin-left: 1100px;
+    color: #ffffff;
+    font-size: 126%;
+    position: absolute;
+}
+
+.signin_signup {
+    margin-left: 1350px;
+    font-size: 126%;
+    color: #FFC18E;
+    text-decoration: none;
+    position: absolute;
+    margin-top: -40px;
+    font-weight: bolder;
+}
+
+.signin_email {
+    margin-top: 30px;
+    margin-left: 1100px;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.signin_password {
+    margin-top: 30px;
+    margin-left: 1100px;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.signin_button {
+    margin-top: 72px;
+    margin-left: 1100px;
+    background-color: #FFC18E;
+    width: 555px;
+    height: 78px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 190%;
+    font-weight: bolder;
+}

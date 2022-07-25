@@ -1,0 +1,109 @@
+@charset 'UTF-8';
+
+/* Slider */
+
+.slick-loading .slick-list {
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+
+/* Icons */
+
+@font-face {
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 40px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+    left: -70px;
+}
+
+
+/*
+[dir='rtl'] .slick-prev {
+    right: -25px;
+    left: auto;
+} */
+
+.slick-prev:before {
+    content: "\2039";
+}
+
+
+/* [dir='rtl'] .slick-prev:before {
+    content: "\27A1";
+} */
+
+.slick-arrow:before {
+    top: -20px;
+    color: black !important;
+    font-size: 75px;
+    right: 28%;
+    left: 28%;
+    position: absolute;
+}
+
+.slick-next {
+    left: 1580px;
+}
+
+
+/*
+[dir='rtl'] .slick-next {
+    right: auto;
+    left: -25px;
+} */
+
+.slick-next:before {
+    content: "\203A";
+}
+
+
+/* [dir='rtl'] .slick-next:before {
+    content: '\2B05';
+} */
+
+.carousel {
+    margin-left: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+    /* border: 2px solid black; */
+    width: 1600px;
+}

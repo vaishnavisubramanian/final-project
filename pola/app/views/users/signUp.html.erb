@@ -1,0 +1,19 @@
+<main class="signup_body">
+    <form action="/create_new_user" method="post">
+        <input name="authenticity_token" type="hidden" value="<%=
+            form_authenticity_token %>">
+        <% if flash[:error]%>
+            <p class="flash-error">
+                <%= flash[:error]%>
+            </p>
+            <%end%>
+                <p class="signup_text">CREATE</p>
+                <p class="signup_text_acc"> ACCOUNT
+                </p>
+                <p class="signup_text2">Have an account?</p> <a href="/signin" class="signup_signin"> Sign in </a>
+                <input placeholder="Username" type="text" class="signup_fullname" id="fullname" name="user[username]" autofocus><br>
+                <input placeholder="Mail ID" type="email" class="signup_email" id="email" name="user[email]" autofocus><br>
+                <input placeholder="Password" type="password" class="signup_password" id="password" name="user[password]" autofocus><br>
+                <button type="submit" class="signup_create_button">Sign up</button>
+    </form>
+</main>
