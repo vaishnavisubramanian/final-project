@@ -1,0 +1,31 @@
+<main class="signup_body">
+    <form action="/buses" method="post">
+        <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
+        <% if flash[:error]%>
+            <p class="signup_flash_error">
+                <%= flash[:error]%>
+            </p>
+            <%end%>
+                <p class="signup_text">ADD</p>
+                <p class="signup_text_acc"> A BUS</p>
+
+                <input placeholder="Bus number" type="text" class="signup_fullname" id="bus_number" name="bus_number"><br>
+                <input placeholder="Travel's name" type="text" class="signup_fullname" id="travel_name" name="travel_name"><br>
+                <input placeholder="Number of seats" type="number" class="signup_email" id="email" name="number_of_seats"><br>
+                <%= select_tag "bus_type", options_for_select([ ["Non - AC",0], ["AC",1] ]) %>
+                <%= select_tag "seat_type", options_for_select([ ["Seater",0], ["Sleeper",1] ]) %>
+                <input placeholder="Shift" type="number" class="signup_email" id="email" name="shift"><br>
+                <input placeholder="Bus Fare" type="number" class="signup_email" id="email" name="fare"><br>
+                <input placeholder="Departure time" type="time" class="signup_email" id="email" name="departure_time"><br>
+                <input placeholder="Arrival time" type="time" class="signup_email" id="email" name="arrival_time"><br>
+                <input placeholder="Departure point" type="text" class="signup_email" id="from_location" name="from_location"><br>
+                <input placeholder="Arrival point" type="text" class="signup_email" id="to_location" name="to_location"><br>
+                <input placeholder="Conductor's Name" type="text" class="signup_email" id="email" name="conductor_name"><br>
+                <input placeholder="Conductor's Phone Number" type="number" class="signup_email" id="email" name="conductor_phone_number"><br>
+
+
+
+
+                <button type="submit" class="signup_create_button">Sign up</button>
+    </form>
+</main>

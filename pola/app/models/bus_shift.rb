@@ -1,0 +1,2 @@
+class BusShift < ApplicationRecord
+end

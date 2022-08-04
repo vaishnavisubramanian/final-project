@@ -22,6 +22,7 @@
 
 .slick-prev,
 .slick-next {
+    color: #37075D;
     font-size: 0;
     line-height: 0;
     position: absolute;
@@ -46,7 +47,7 @@
     font-size: 20px;
     line-height: 1;
     opacity: .75;
-    color: white;
+    color: #37075D;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -100,10 +101,11 @@
     content: '\2B05';
 } */
 
-.carousel {
+.home_carousel {
     margin-left: 140px;
     padding-left: 50px;
     padding-right: 50px;
     /* border: 2px solid black; */
     width: 1600px;
+    height: 305px;
 }

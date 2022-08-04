@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def current_user #memoization
+    def current_user
       return @current_user if @current_user
       current_user_id = session[:current_user_id]
       if current_user_id
@@ -17,9 +17,3 @@ class ApplicationController < ActionController::Base
       end
     end
 end
-
-
-
-
-
-

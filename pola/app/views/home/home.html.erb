@@ -1,138 +1,123 @@
 <main class="home_body">
     <nav class="home_navbar">
-        <a href="/signup">
-            <button id="home_profile_icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-      </svg>
-    </button>
-        </a>
-
+        <% if @presence == 0 %>
+            <a href="/signin">
+                <button id="home_profile_icon">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
+                </button>
+            </a>
+        <% else %>
+            <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+         <% end %>
 
         <li>
-            <a href="" class="home_nav_links">My bookings</a>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
         </li>
         <li>
-            <a href="" class="home_nav_links">Service</a>
+            <a href="/service" class="home_nav_links">Service</a>
         </li>
         <li>
-            <a href="" class="home_nav_links">About</a>
+            <a href="/about" class="home_nav_links">About</a>
         </li>
         <li>
             <a href="" class="home_nav_links" id="home_active">Home</a>
         </li>
-
     </nav>
+
     <div class="home_first_div">
-        <p class="home_text">BOOK YOUR TICKET</p>
+        <p class="home_text">BOOK YOUR TICKET </p>
         <br>
         <input type="text" name="from" class="home_from_place" placeholder="Select Pickup City" required>
         <input type="text" name="to" class="home_to_place" placeholder="Select Drop City" required>
         <input type="text" name="date" class="home_date_of_journey" placeholder="Select Date" onfocus="(this.type='date')" onblur="(this.type='text')" required><br>
         <button type="submit" class="home_search_bus">CHECK AVAILABILITY</button>
         <div class="home_from_icon_div">
-            <%= image_tag 'location_icon.png', alt: 'icon', class: 'home_location_icon' %>
+            <%= image_tag 'location_icon.png', alt:'icon',  class: 'home_location_icon' %>
         </div>
         <div class="home_to_icon_div">
-            <%= image_tag 'flag-icon.png', alt: 'icon', class: 'home_flag_icon' %>
+            <%= image_tag'flag-icon.png', alt:'icon',class: 'home_flag_icon' %>
         </div>
         <div class="home_date_icon_div">
-            <%= image_tag 'date-icon.png', alt: 'icon', class: 'home_date_icon' %>
+            <%= image_tag 'date-icon.png', alt: 'icon', class:'home_date_icon' %>
         </div>
     </div>
     <div class="home_second_div slider">
-        <p class="home_offers_text">POLA OFFERS FOR YOU</p>
+        <p class="home_offers_text">POLA OFFERS FOR YOU
+        </p>
+ <% if @presence != 0 %>
+        <% if @current_user == "admin" %>
+              <button class="home_admin_add_bus">testingg</button>
+        <% end %>
+    <% end %>
 
-        <div class="carousel">
+        <div class="home_carousel">
             <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img1" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img1" width="450px" height="280px">
                 </h3>
             </div>
             <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img2" width="450px" height="280px">
-
+                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img2" width="450px" height="280px">
                 </h3>
             </div>
             <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img3" width="450px" height="280px">
-
+                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img3" width="450px" height="280px">
                 </h3>
+
             </div>
             <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img4" width="450px" height="280px">
-
+                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img4" width="450px" height="280px">
                 </h3>
+
             </div>
             <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img5" width="450px" height="280px">
-
+                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img5" width="450px" height="280px">
                 </h3>
+
             </div>
-            <!-- <div>
-                <h3>
-                    <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img1">
-
-                </h3>
-            </div> -->
         </div>
-
-
-
-
-        <!-- <div class="home_offer_img1"></div>
-        <div class="home_offer_img2"></div>
-        <div class="home_offer_img3"></div>
-        <div class="home_offer_img4"></div>
-        <div class="home_offer_img5"></div> -->
     </div>
     <div class="home_third_div">
         <p class="home_instruction_guide_text">POLA'S INSTRUCTION GUIDE</p>
-        <div class="home_instruction1_div"> <img src="<%= asset_path 'search-new-1.png' %>" class="home_search_illustrator">
-            <p class="home_instruction1_heading">Search Buses</p>
-            <p class="home_instruction1_text">Enter the source and destination locations in the 'From' and 'To' tab respectively. Enter the 'Date of Journey' and hit the 'Search Buses' button.
-            </p>
+        <div class="home_instruction1_div">
+            <img src="<%=asset_path 'search-new-1.png'%>" class="home_search_illustrator">
+            <p class="home_instruction1_heading">Search Buses </p>
+            <p class="home_instruction1_text">Enter the source and destination locations in the 'From' and 'To' tab respectively. Enter the 'Date of Journey' and hit the 'Search Buses' button.</p>
         </div>
-        <div class="home_instruction2_div"> <img src="<%= asset_path 'book.png' %>" class="home_book_illustrator">
-            <p class="home_instruction2_heading">Book Ticket</p>
+        <div class="home_instruction2_div">
+            <img src="<%=asset_path 'book.png' %>" class="home_book_illustrator">
+            <p class="home_instruction2_heading">Book Ticket </p>
             <p class="home_instruction2_text">Select a bus of your choice from the list of buses that are displayed, select a seat, boarding, and dropping points and hit 'Continue to Book Tickets'.</p>
         </div>
-        <div class="home_instruction3_div"> <img src="<%= asset_path 'pay-1.png' %>" class="home_pay_illustrator">
+        <div class="home_instruction3_div">
+            <img src="<%= asset_path 'pay-1.png' %>" class="home_pay_illustrator">
             <p class="home_instruction3_heading">Payment</p>
             <p class="home_instruction3_text">After clicking 'Continue to Book Tickets', you will be asked to pay for the ticket. We provide various options for you to pay. You can pay via credit/debit card,net banking, and so on.</p>
         </div>
-        <div class="home_instruction4_div"> <img src="<%= asset_path 'bus travel-1.png' %>" class="home_bus_illustrator">
+        <div class="home_instruction4_div">
+            <img src="<%=asset_path 'bus travel-1.png' %>" class="home_bus_illustrator">
             <p class="home_instruction4_heading">Travel</p>
             <p class="home_instruction4_text">Travel Safe with deep cleaned and disinfected bus equipped with hand sanitizers, all staff with masks at all time during the journey. Happy Ticketing!</p>
         </div>
     </div>
 
-
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.carousel').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: false,
-                autoplaySpeed: 2000,
-                slidesToShow: 3,
-                arrows: true,
-                dots: false
-            });
-        })
-    </script>
-
-
-
-
-
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.home_carousel').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            slidesToShow: 3,
+            arrows: true,
+            dots: false
+        });
+    })
+</script>
 </main>

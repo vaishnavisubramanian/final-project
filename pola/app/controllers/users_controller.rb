@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         redirect_to "/signin"
 
       else
-        flash[:error] = user.errors.full_messages.join(",")
+        flash[:error] = user.errors.full_messages.first
         redirect_to "/signup"
       end
   end
@@ -20,3 +20,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 end
+
+
+
+
+
+
+

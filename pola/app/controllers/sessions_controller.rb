@@ -10,14 +10,20 @@ class SessionsController < ApplicationController
         session[:current_user_id] = user.id
         redirect_to home_path
     else
-      flash[:error] = "Invalid email or password"
+      flash[:error] = "Invalid email or password!"
      redirect_to "/signin"
     #   flash[:error] = "Your signin attempt was invalid, Please retry."
     #   redirect_to new_sessions_path
     end
   end
+  def destroy
+    session[:current_user_id] = nil
+    @current_user = nil
+    redirect_to "/home"
+  end
   private
   def login_params
     params.require(:user).permit(:email, :password)
   end
+
 end

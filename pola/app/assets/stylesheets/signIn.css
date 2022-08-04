@@ -87,3 +87,18 @@
     font-size: 190%;
     font-weight: bolder;
 }
+
+.signin_flash_error {
+    background-color: #FFC18E;
+    text-align: center;
+    color: #37075D;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    font-size: larger;
+    letter-spacing: 0.1em;
+    float: right;
+    margin-top: -170px;
+    font-weight: 500;
+    padding-top: 15px;
+}

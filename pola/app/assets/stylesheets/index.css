@@ -45,3 +45,8 @@
     padding-right: 10px;
     border-style: none;
 }
+
+.index_start_button:hover {
+    border: 2px solid #3B065E;
+    cursor: pointer;
+}
