@@ -14,12 +14,29 @@ class BusesController < ApplicationController
       puts to_location.id
       bus_shift = BusShift.new(bus_id: id,shift: params[:shift],fare: params[:fare],departure_time: params[:departure_time],arrival_time: params[:arrival_time],conductor_name: params[:conductor_name],conductor_phone_number: params[:conductor_phone_number],from_location_id: from_location.id,to_location_id: to_location.id)
       if bus_shift.save
-        render plain: "Success in Bus Shift"
+        redirect_to buses_path
       else
-        render plain: "False in Bus Shift"
+        flash[:error] = bus_shift.errors.full_messages
+        redirect_to "/buses/new"
       end
     else
-       render plain: "False in Bus"
+      flash[:error] = bus.errors.full_messages
+      redirect_to "/buses/new"
+    end
+  end
+  def index
+    @bus = Bus.all
+
+  end
+  def destroy
+    id = params[:id]
+    bus = Bus.find(id)
+    bus_id = bus.id
+    bus_shift = BusShift.find_by(bus_id: bus_id)
+    if bus.destroy && bus_shift.destroy
+      redirect_to buses_path
+    else
+      render plain: "Failed"
     end
   end
 

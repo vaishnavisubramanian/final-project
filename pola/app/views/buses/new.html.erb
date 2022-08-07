@@ -1,31 +1,36 @@
-<main class="signup_body">
+<main class="addbus_body">
+
+
     <form action="/buses" method="post">
         <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
         <% if flash[:error]%>
-            <p class="signup_flash_error">
+            <p class="addbus_flash_error">
                 <%= flash[:error]%>
             </p>
             <%end%>
-                <p class="signup_text">ADD</p>
-                <p class="signup_text_acc"> A BUS</p>
 
-                <input placeholder="Bus number" type="text" class="signup_fullname" id="bus_number" name="bus_number"><br>
-                <input placeholder="Travel's name" type="text" class="signup_fullname" id="travel_name" name="travel_name"><br>
-                <input placeholder="Number of seats" type="number" class="signup_email" id="email" name="number_of_seats"><br>
-                <%= select_tag "bus_type", options_for_select([ ["Non - AC",0], ["AC",1] ]) %>
-                <%= select_tag "seat_type", options_for_select([ ["Seater",0], ["Sleeper",1] ]) %>
-                <input placeholder="Shift" type="number" class="signup_email" id="email" name="shift"><br>
-                <input placeholder="Bus Fare" type="number" class="signup_email" id="email" name="fare"><br>
-                <input placeholder="Departure time" type="time" class="signup_email" id="email" name="departure_time"><br>
-                <input placeholder="Arrival time" type="time" class="signup_email" id="email" name="arrival_time"><br>
-                <input placeholder="Departure point" type="text" class="signup_email" id="from_location" name="from_location"><br>
-                <input placeholder="Arrival point" type="text" class="signup_email" id="to_location" name="to_location"><br>
-                <input placeholder="Conductor's Name" type="text" class="signup_email" id="email" name="conductor_name"><br>
-                <input placeholder="Conductor's Phone Number" type="number" class="signup_email" id="email" name="conductor_phone_number"><br>
+                <p class="addbus_text">ADD</p>
+                <p class="addbus_text_bus">BUS</p>
 
+                <input placeholder="Bus number" type="text" class="addbus_bus_number" id="bus_number" name="bus_number"><br>
+                <input placeholder="Travel's name" type="text" class="addbus_travel_name" id="travel_name" name="travel_name"><br>
+                <input placeholder="Seats" type="number" class="addbus_seats" id="email" name="number_of_seats">
+                <input placeholder="Shift" type="number" class="addbus_shift" id="email" name="shift">
+                <input placeholder="Bus Fare" type="number" class="addbus_fare" id="email" name="fare"><br>
+                <%= select_tag "bus_type", options_for_select([ ["Non - AC",0], ["AC",1] ]),class:"addbus_bus_type" %>
+                <%= select_tag "seat_type", options_for_select([ ["Seater",0], ["Sleeper",1] ]),class:"addbus_seat_type" %><br>
+                <input placeholder="Departure point" type="text" class="addbus_dep_point" id="from_location" name="from_location">
+                <input placeholder="Arrival point" type="text" class="addbus_arr_point" id="to_location" name="to_location"><br>
+                <input placeholder="Departure time" type="time" class="addbus_dep_time" id="departure_time" name="departure_time">
+                <input placeholder="Arrival time" type="time" class="addbus_arr_point" id="email" name="arrival_time" onmouseover="myFunction()"><br>
+                <input placeholder="Conductor's Name" type="text" class="addbus_travel_name" id="email" name="conductor_name"><br>
+                <input placeholder="Conductor's Phone Number" type="number" class="addbus_travel_name" id="email" name="conductor_phone_number"><br>
 
-
-
-                <button type="submit" class="signup_create_button">Sign up</button>
+                <button type="submit" class="addbus_add_button">Submit</button>
     </form>
 </main>
+<script>
+function myFunction() {
+  document.getElementById("departure_time").placeholder = "Type name here..";
+}
+</script>

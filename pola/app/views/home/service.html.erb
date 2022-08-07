@@ -1,30 +1,104 @@
-<main class="home_body">
+<main class="service_body">
     <nav class="home_navbar">
         <% if @presence == 0 %>
-            <a href="/signin">
-                <button id="home_profile_icon">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
             </a>
-            <% else %>
-             <a href="/signin">
-                <button id="home_profile_icon">
-                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
-                </button>
-            </a>
-                        <% end %>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links" id="home_active">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
 
-                            <li>
-                                <a href="/bookings" class="home_nav_links">My bookings</a>
-                            </li>
-                            <li>
-                                <a href="/service" class="home_nav_links" id="home_active">Service</a>
-                            </li>
-                            <li>
-                                <a href="/about" class="home_nav_links">About</a>
-                            </li>
-                            <li>
-                                <a href="/home" class="home_nav_links" >Home</a>
-                            </li>
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+                       <li>
+                    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+                  <li>
+            <a href="/buses/new" class="home_nav_links">Add Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links"  id="home_active">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+ <li>
+  <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links" id="home_active">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
     </nav>
+    <div class="service_first_div">
+        <p class="service_heading">RELIABLE, SAFE AND <br> PROFESSIONAL SERVICES</p>
+                    <div id="service_icon_div1">
+                    <%= image_tag 'image 5.png', alt:'icon', class:'service_icon1' %>
+                    <p class="service_icon1_text">Easy Booking</p>
+                    </div>
+                    <div id="service_icon_div2">
+                    <%= image_tag 'image 6.png', alt:'icon', class:'service_icon2' %>
+                    <p class="service_icon2_text">Comfortable Bus</p>
+                    </div>
+                    <div id="service_icon_div3">
+                    <%= image_tag 'image 7.png', alt:'icon', class:'service_icon3' %>
+                    <p class="service_icon3_text">Support 22/7</p>
+                    </div>
+                    <div id="service_icon_div4">
+                    <%= image_tag 'image 8.png', alt:'icon', class:'service_icon4' %>
+                    <p class="service_icon4_text">Low Cost</p>
+                    </div>
+
+    </div>
 </main>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_03_133630) do
+ActiveRecord::Schema.define(version: 2022_08_05_053942) do
 
   create_table "bus_shifts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "shift", limit: 1
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_08_03_133630) do
     t.string "role", default: "customer"
   end
 
-  add_foreign_key "bus_shifts", "buses"
-  add_foreign_key "bus_shifts", "places", column: "from_location_id"
-  add_foreign_key "bus_shifts", "places", column: "to_location_id"
+  add_foreign_key "bus_shifts", "buses", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "bus_shifts", "places", column: "from_location_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "bus_shifts", "places", column: "to_location_id", on_update: :cascade, on_delete: :cascade
 end

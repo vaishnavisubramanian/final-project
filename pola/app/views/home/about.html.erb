@@ -1,36 +1,91 @@
 <main class="home_body">
-    <nav class="home_navbar">
+     <nav class="home_navbar">
         <% if @presence == 0 %>
-            <a href="/signin">
-                <button id="home_profile_icon">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
+   <li>
+    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
             </a>
-            <% else %>
-             <a href="/signin">
-                <button id="home_profile_icon">
-                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
-                </button>
-            </a>
-                        <% end %>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links"  id="home_active">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
 
-                            <li>
-                                <a href="/bookings" class="home_nav_links">My bookings</a>
-                            </li>
-                            <li>
-                                <a href="/service" class="home_nav_links">Service</a>
-                            </li>
-                            <li>
-                                <a href="" class="home_nav_links" id="home_active">About</a>
-                            </li>
-                            <li>
-                                <a href="/home" class="home_nav_links" >Home</a>
-                            </li>
+ <% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+                       <li>
+                    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+                  <li>
+            <a href="/buses/new" class="home_nav_links">Add Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links" id="home_active">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+        <% else %>
+
+          <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+ <li>
+  <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links" id="home_active">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
     </nav>
 
     <div class="about_text_div">
     <p class="about_about_us">About us</p>
-    <p class="about_about_us_text">Pola is one of the world's largest online bus ticketing platform that has transformed bus travel by bringing ease and convenience to millions of people who travel using buses. By providing widest choice, superior customer service, lowest prices and unmatched benefits, Pola has served over 5 lakh customers. <br> <br> Pola, over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts have resulted into Pola becoming one of the leading ticketing platforms in India for various Bus services. We have a strong presence with a ticket inventory from over 250 bus partners and 10000 route options our app and website. Founded in the year 2019, Pola is a pioneer in providing end-to-end software and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking systems, passenger information systems, logistics management backed by a 24x7 customer support center. </p>
+    <p class="about_about_us_text">Pola is one of the world's largest online bus ticketing platform that has transformed bus travel by bringing ease and convenience to millions of people who travel using buses. By providing widest choice, superior customer service, lowest prices and unmatched benefits, Pola has served over 5 lakh customers. <br> <br>Pola, over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts have resulted into Pola becoming one of the leading ticketing platforms in India for various Bus services. We have a strong presence with a ticket inventory from over 250 bus partners and 10000 route options our app and website. Founded in the year 2019, Pola is a pioneer in providing end-to-end software and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking systems, passenger information systems, logistics management backed by a 24x7 customer support center. </p>
 
     <p class="about_management">Management Team</p>
     <%= image_tag 'pola_profile.png', alt:'icon', class:'about_picture' %>
@@ -50,7 +105,7 @@
     <br><br>
 
 
-     <%= image_tag 'pola_profile.png', alt:'icon', class:'about_picture' %>
+     <%= image_tag 'image.png', alt:'icon', class:'about_picture' %>
         <div class="about_ceo">
             <p class="about_ceo_name">Ismail, Manager</p>
             <p class="about_ceo_info">Ismail has been Chief Executive Officer of redBus since June 2014. Prior to redBus. He served as an Executive Vice President of Info Edge India (Naukri group), heading two group businesses namely Shiksha.com and Jeevansathi.com.</p>

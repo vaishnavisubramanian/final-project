@@ -1,3 +1,6 @@
 class Bus < ApplicationRecord
-  validates :bus_number, uniqueness: true
+  has_many :shifts
+  validates :bus_number, uniqueness: true, presence: true
+  validates :travel_name, presence: true
+  validates :number_of_seats, presence: true
 end

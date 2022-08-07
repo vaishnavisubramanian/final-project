@@ -8,9 +8,8 @@ class CreateBusShifts < ActiveRecord::Migration[6.1]
       t.string :conductor_name
       t.integer :conductor_phone_number, limit: 5
       t.references :bus, null: false, foreign_key: true
-      t.references :from_location, foreign_key: { to_table: 'places' }
-      t.references :to_location, foreign_key: { to_table: 'places' }
-
+      t.references :from_location, foreign_key: { to_table: 'places',on_delete: :cascade,on_update: :cascade }
+      t.references :to_location, foreign_key: { to_table: 'places',on_delete: :cascade,on_update: :cascade }
       t.timestamps
     end
   end

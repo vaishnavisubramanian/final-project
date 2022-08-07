@@ -1,0 +1,233 @@
+::-moz-selection {
+    color: white;
+    background: #3B065E;
+}
+
+::selection {
+    color: white;
+    background: #3B065E;
+}
+
+.addbus_body {
+    background-color: #37075D;
+    width: 1848px;
+    height: 1100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.addbus_text {
+    margin-top: 70px;
+    margin-left: 635px;
+    color: white;
+    font-size: 450%;
+    font-weight: bolder;
+}
+
+.addbus_text_bus {
+    margin-top: -160px;
+    margin-left: 830px;
+    color: #FFC18E;
+    font-size: 450%;
+    font-weight: bolder;
+    position: absolute;
+}
+
+.addbus_bus_number {
+    margin-top: -40px;
+    margin-left: 635px;
+    background-color: white;
+    width: 530px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.addbus_travel_name {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: white;
+    width: 530px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.addbus_seats {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: white;
+    width: 112px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.addbus_shift {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    width: 110px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.addbus_fare {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    width: 130px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.addbus_bus_type {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: white;
+    width: 268px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_seat_type {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    width: 278px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_dep_point {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: white;
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_arr_point {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    width: 245px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_dep_time {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: white;
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_arr_time {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    width: 245px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    /* padding-right: 25px; */
+    font-weight: 600;
+}
+
+.addbus_add_button {
+    margin-top: 30px;
+    margin-left: 635px;
+    background-color: #FFC18E;
+    width: 582px;
+    height: 78px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 190%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.addbus_flash_error {
+    background-color: #FFC18E;
+    text-align: center;
+    color: #37075D;
+    height: auto;
+    width: 500px;
+    border-radius: 10px;
+    font-size: larger;
+    letter-spacing: 0.1em;
+    float: right;
+    margin-top: -30px;
+    font-weight: 500;
+    padding: 15px;
+    margin-right: 20px;
+}

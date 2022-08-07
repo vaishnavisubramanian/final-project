@@ -1,30 +1,84 @@
 <main class="home_body">
-    <nav class="home_navbar">
+     <nav class="home_navbar">
         <% if @presence == 0 %>
-            <a href="/signin">
-                <button id="home_profile_icon">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
+    <li>
+    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
             </a>
-            <% else %>
-             <a href="/signin">
-                <button id="home_profile_icon">
-                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
-                </button>
-            </a>
-                        <% end %>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
 
-                            <li>
-                                <a href="/bookings" class="home_nav_links"  id="home_active">My bookings</a>
-                            </li>
-                            <li>
-                                <a href="/service" class="home_nav_links">Service</a>
-                            </li>
-                            <li>
-                                <a href="/about" class="home_nav_links">About</a>
-                            </li>
-                            <li>
-                                <a href="/home" class="home_nav_links" >Home</a>
-                            </li>
+ <% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+                       <li>
+                    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+                  <li>
+            <a href="/buses/new" class="home_nav_links">Add Bus</a>
+        </li>
+           
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+        <% else %>
+          <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+ <li>
+  <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links"  id="home_active">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
     </nav>
 </main>

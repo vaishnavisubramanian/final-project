@@ -13,7 +13,5 @@ Rails.application.routes.draw do
   get "/home", to: "home#home"
   get "/service", to: "home#service"
   get "/bookings", to: "home#bookings"
-end
-
-
-
+  get "/addbus", to: "buses#new"
+  end

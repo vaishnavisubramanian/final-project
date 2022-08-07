@@ -1,0 +1,27 @@
+<% @bus.each do|bus|%>
+<%= bus.travel_name %>
+<% if bus.bus_type == true%>
+   AC
+<% else %>
+  Non-AC
+<% end %>
+<% if bus.seat_type == true%>
+   Sleeper
+<% else %>
+  Seater
+<% end %>
+<%= bus.number_of_seats %>
+<% @bus_shift = BusShift.find_by(bus_id: bus.id)%>
+<%= @bus_shift.fare %>
+<%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
+<%= @bus_shift.departure_time.strftime("%I:%M %p")%>
+<% @from_location = Place.find(@bus_shift.from_location_id)%>
+<% @to_location = Place.find(@bus_shift.to_location_id)%>
+<%= @from_location.place %>
+<%= @to_location.place %>
+<a href="/buses/<%= bus.id %>" data-method="delete">Delete Bus</a>
+<br>
+<% end %>
+
+
+

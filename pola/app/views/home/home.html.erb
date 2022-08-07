@@ -1,20 +1,66 @@
 <main class="home_body">
     <nav class="home_navbar">
         <% if @presence == 0 %>
-            <a href="/signin">
-                <button id="home_profile_icon">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile' %>
-                </button>
-            </a>
-        <% else %>
-            <a href="/signin">
+    <li>
+    <a href="/signin">
                 <button id="home_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
             </a>
-         <% end %>
+           </li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" id="home_active">Home</a>
+        </li>
+        <% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+                       <li>
+                    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+                  <li>
+            <a href="/buses/new" class="home_nav_links">Add Bus</a>
+        </li>
 
         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" id="home_active">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+        <% else %>
+          <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="home_logout"> <span>Log out</span></button>
+                    <% end %>
+
+ <div class="dropdown">
+        <a href="#">
+        <button class="dropbtn"><%= @user.username %></button></a>
+        <div class="dropdown-content">
+          <a href="/logout" data-method="delete">Log Out</a>
+        </div>
+      </div>
+            <li>
             <a href="/bookings" class="home_nav_links">My bookings</a>
         </li>
         <li>
@@ -24,12 +70,16 @@
             <a href="/about" class="home_nav_links">About</a>
         </li>
         <li>
-            <a href="" class="home_nav_links" id="home_active">Home</a>
+            <a href="/home" class="home_nav_links" id="home_active">Home</a>
         </li>
+
+         <% end %>
+
+
     </nav>
 
     <div class="home_first_div">
-        <p class="home_text">BOOK YOUR TICKET </p>
+        <p class="home_text">BOOK YOUR TICKET</p>
         <br>
         <input type="text" name="from" class="home_from_place" placeholder="Select Pickup City" required>
         <input type="text" name="to" class="home_to_place" placeholder="Select Drop City" required>
@@ -45,14 +95,11 @@
             <%= image_tag 'date-icon.png', alt: 'icon', class:'home_date_icon' %>
         </div>
     </div>
+
     <div class="home_second_div slider">
         <p class="home_offers_text">POLA OFFERS FOR YOU
         </p>
- <% if @presence != 0 %>
-        <% if @current_user == "admin" %>
-              <button class="home_admin_add_bus">testingg</button>
-        <% end %>
-    <% end %>
+
 
         <div class="home_carousel">
             <div>
@@ -102,7 +149,9 @@
             <p class="home_instruction4_heading">Travel</p>
             <p class="home_instruction4_text">Travel Safe with deep cleaned and disinfected bus equipped with hand sanitizers, all staff with masks at all time during the journey. Happy Ticketing!</p>
         </div>
-    </div>
+    </div><br>
+
+
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
