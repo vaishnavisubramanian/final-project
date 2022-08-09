@@ -25,7 +25,18 @@ class BusesController < ApplicationController
     end
   end
   def index
-    @bus = Bus.all
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+      @bus = Bus.all
+      render "buses/index"
+    else
+      @presence = 0
+      @bus = Bus.all  
+      render "buses/index"
+    end
+
 
   end
   def destroy

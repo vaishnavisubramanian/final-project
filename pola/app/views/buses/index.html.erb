@@ -1,27 +1,177 @@
-<% @bus.each do|bus|%>
-<%= bus.travel_name %>
-<% if bus.bus_type == true%>
-   AC
-<% else %>
-  Non-AC
-<% end %>
-<% if bus.seat_type == true%>
-   Sleeper
-<% else %>
-  Seater
-<% end %>
-<%= bus.number_of_seats %>
-<% @bus_shift = BusShift.find_by(bus_id: bus.id)%>
-<%= @bus_shift.fare %>
-<%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
-<%= @bus_shift.departure_time.strftime("%I:%M %p")%>
-<% @from_location = Place.find(@bus_shift.from_location_id)%>
-<% @to_location = Place.find(@bus_shift.to_location_id)%>
-<%= @from_location.place %>
-<%= @to_location.place %>
-<a href="/buses/<%= bus.id %>" data-method="delete">Delete Bus</a>
-<br>
+
+
+   <nav class="list_bus_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="list_bus_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="list_bus_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="list_bus_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="list_bus_nav_links" >Home</a>
+        </li>
+
+<% elsif @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="list_bus_logout"> <span>Log out</span></button>
+                    <% end %>
+
+                       <li>
+                    <a href="/signin">
+                <button id="list_bus_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+                  <li>
+            <a href="/buses/index" class="list_bus_nav_links" id="list_bus_active">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="list_bus_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="list_bus_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="list_bus_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+
+
+        <% else %>
+          <%= link_to destroy_session_path, method: :delete do %>
+                   <button class="list_bus_logout"> <span>Log out</span></button>
+                    <% end %>
+
+ <li>
+  <a href="/signin">
+                <button id="list_bus_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
+            <li>
+            <a href="/bookings" class="list_bus_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="list_bus_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="list_bus_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="list_bus_nav_links" >Home</a>
+        </li>
+         <% end %>
+
+    </nav>
+
+<%= link_to "/buses/new",method: :get do%>
+<button class="list_bus_add_bus_btn">
+
+  <i class="fa-solid fa-plus"></i> Add Bus
+</button>
 <% end %>
 
 
 
+<div class="list_bus_div">
+
+ <% @bus.each do|bus|%>
+
+  <div class="list_bus_single">
+
+    <p class="list_bus_name">
+      <%= bus.travel_name %>
+    </p>
+
+    <p class="list_bus_type">
+      <% if bus.bus_type == true%>
+        AC
+      <% else %>
+        Non-AC
+      <% end %>
+    </p>
+
+    <p class="list_bus_hifn1">-</p>
+
+    <p class="list_bus_seat_type">
+      <% if bus.seat_type == true%>
+        Sleeper
+      <% else %>
+        Seater
+      <% end %>
+    </p>
+
+    <p class="list_bus_hifn2">-</p>
+
+    <p class="list_bus_seats">
+      <%= bus.number_of_seats %> Seats
+    </p>
+
+    <div class="list_bus_review">
+        5 <i class="fa-solid fa-star"></i>
+
+    </div>
+
+     <% @bus_shift = BusShift.find_by(bus_id: bus.id)%>
+
+    <div class="list_bus_left">
+    <p class="list_bus_dept_text">
+      Departure
+    </p>
+
+    <p class="list_bus_depature_time">
+      <%= @bus_shift.departure_time.strftime("%I:%M %p")%>
+    </p>
+
+    <p class="list_bus_from_place">
+      <% @from_location = Place.find(@bus_shift.from_location_id)%>
+      <%= @from_location.place %>
+    </p>
+    </div>
+
+    <p class="list_bus_line1">
+    </p>
+
+    <div class="list_bus_right">
+    <p class="list_bus_arr_text">
+      Arrival
+    </p>
+
+    <p class="list_bus_arrival_time">
+      <%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
+    </p>
+
+    <p class="list_bus_to_place">
+      <% @to_location = Place.find(@bus_shift.to_location_id)%>
+      <%= @to_location.place %>
+    </p>
+    </div>
+
+    <%= link_to "/buses/#{bus.id}", method: :delete,class: "list_bus_delete_link",:data => {:confirm => 'Are you sure? Do you want to logout ?'} do %>
+      <p class="list_bus_delete_bus">
+         <i class="fa-solid fa-trash"></i>
+      </p>
+    <% end %>
+
+
+    <p class="list_bus_fare">
+      INR <%= @bus_shift.fare %>
+    </p>
+
+</div>
+<% end %>
+
+</div>

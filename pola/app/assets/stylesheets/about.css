@@ -29,6 +29,7 @@
     width: 150px;
     /* border: 2px solid black; */
     height: 150px;
+    border-radius: 100px;
 }
 
 .about_ceo {
@@ -49,4 +50,15 @@
     font-weight: 300;
     letter-spacing: 0.1ex;
     text-align: justify;
+}
+
+.about_footer {
+    background-color: #37075D;
+    height: 220px;
+    margin-top: 40px;
+    position: absolute;
+    width: 1848px;
+    left: 0;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

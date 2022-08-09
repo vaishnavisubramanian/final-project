@@ -12,8 +12,6 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Invalid email or password!"
      redirect_to "/signin"
-    #   flash[:error] = "Your signin attempt was invalid, Please retry."
-    #   redirect_to new_sessions_path
     end
   end
   def destroy
