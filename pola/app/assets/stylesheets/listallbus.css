@@ -91,25 +91,29 @@ li .list_bus_nav_links_bookings {
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 770px;
-    padding-right: 770px;
+    padding-left: 780px;
+    padding-right: 780px;
     font-size: 160%;
     font-weight: 600;
     cursor: pointer;
     border: none;
+    position: sticky;
 }
 
 .list_bus_add_bus_btn:hover {
     background-color: #e9cdb73c;
     color: #37075D;
     border: 2px solid #37075D;
-    /* box-shadow: #696070 5px 5px 5px; */
+    padding-left: 778px;
+    padding-right: 778px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .list_bus_single {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: #e9cdb73c;
-    width: 1700px;
+    width: fit-content;
     margin-left: 60px;
     margin-top: 70px;
     color: #37075D;
@@ -122,54 +126,58 @@ li .list_bus_nav_links_bookings {
     font-weight: 900;
     padding-top: 50px;
     margin-left: 50px;
-    letter-spacing: 0.1ex;
+    letter-spacing: 0.1mm;
+}
+
+.list_bus_type_div {
+    /* border: #37075D 2px solid; */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    padding-left: 40px;
+    margin-top: -40px;
+}
+
+.list_bus_type_div p {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .list_bus_type {
     font-size: 120%;
     color: #37075D;
     font-weight: 400;
-    margin-top: -20px;
-    margin-left: 50px;
     letter-spacing: 0.1ex;
     width: fit-content;
-    /* border: 2px solid #37075D; */
+    /* border: #37075D 2px solid; */
 }
 
 .list_bus_hifn1 {
-    /* border: 2px solid #37075D; */
-    width: 10px;
-    margin-left: 140px;
-    margin-top: -40px;
+    width: fit-content;
+    margin-top: 20px;
 }
 
 .list_bus_seat_type {
-    /* border: 2px solid #37075D; */
     font-size: 130%;
     color: #37075D;
     font-weight: 400;
     letter-spacing: 0.1ex;
     width: fit-content;
-    margin-left: 160px;
-    margin-top: -38px;
+    margin-top: 19px;
 }
 
 .list_bus_hifn2 {
-    /* border: 2px solid #37075D; */
-    width: 10px;
-    margin-left: 245px;
-    margin-top: -43px;
+    width: fit-content;
+    margin-top: 20px;
 }
 
 .list_bus_seats {
-    /* border: 2px solid #37075D; */
     font-size: 130%;
     color: #37075D;
     font-weight: 400;
-    margin-left: 265px;
     letter-spacing: 0.1ex;
     width: fit-content;
-    margin-top: -37px;
+    margin-top: 19px;
 }
 
 .list_bus_review {
@@ -262,12 +270,12 @@ li .list_bus_nav_links_bookings {
 }
 
 .list_bus_delete_bus {
-    background-color: #37075D;
+    background-color: #F55858;
     color: white;
     font-size: 130%;
     font-weight: 800;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     width: fit-content;

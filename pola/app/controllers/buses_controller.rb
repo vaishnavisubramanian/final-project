@@ -30,11 +30,11 @@ class BusesController < ApplicationController
       @presence = 1
       @user = User.find(current_user.id)
       @bus = Bus.all
-      render "buses/index"
+      render "/buses/index"
     else
       @presence = 0
-      @bus = Bus.all  
-      render "buses/index"
+      @bus = Bus.all
+      render "/buses/index"
     end
 
 

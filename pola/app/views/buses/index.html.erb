@@ -18,7 +18,9 @@
             <a href="/home" class="list_bus_nav_links" >Home</a>
         </li>
 
-<% elsif @presence == 1%>
+<% elsif %>
+             <% if @presence == 1%>
+
            <% if @user.role == "admin"%>
                  <%= link_to destroy_session_path, method: :delete do %>
                    <button class="list_bus_logout"> <span>Log out</span></button>
@@ -46,6 +48,7 @@
         </li>
 
 
+            <% end %>
             <% end %>
 
 
@@ -96,29 +99,31 @@
       <%= bus.travel_name %>
     </p>
 
-    <p class="list_bus_type">
-      <% if bus.bus_type == true%>
-        AC
-      <% else %>
-        Non-AC
-      <% end %>
-    </p>
+    <div class="list_bus_type_div">
+      <p class="list_bus_type">
+        <% if bus.bus_type == true%>
+          AC
+        <% else %>
+          Non-AC
+        <% end %>
+      </p>
 
-    <p class="list_bus_hifn1">-</p>
+      <p class="list_bus_hifn1">-</p>
 
-    <p class="list_bus_seat_type">
-      <% if bus.seat_type == true%>
-        Sleeper
-      <% else %>
-        Seater
-      <% end %>
-    </p>
+      <p class="list_bus_seat_type">
+        <% if bus.seat_type == true%>
+          Sleeper
+       <% else %>
+         Seater
+        <% end %>
+      </p>
 
-    <p class="list_bus_hifn2">-</p>
+      <p class="list_bus_hifn2">-</p>
 
-    <p class="list_bus_seats">
-      <%= bus.number_of_seats %> Seats
-    </p>
+      <p class="list_bus_seats">
+        <%= bus.number_of_seats %> Seats
+      </p>
+    </div>
 
     <div class="list_bus_review">
         5 <i class="fa-solid fa-star"></i>
@@ -160,12 +165,11 @@
     </p>
     </div>
 
-    <%= link_to "/buses/#{bus.id}", method: :delete,class: "list_bus_delete_link",:data => {:confirm => 'Are you sure? Do you want to logout ?'} do %>
+    <%= link_to "/buses/#{bus.id}", method: :delete,class: "list_bus_delete_link",:data => {:confirm => 'Are you sure? Do you want to delete this bus?'} do %>
       <p class="list_bus_delete_bus">
          <i class="fa-solid fa-trash"></i>
       </p>
     <% end %>
-
 
     <p class="list_bus_fare">
       INR <%= @bus_shift.fare %>

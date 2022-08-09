@@ -53,13 +53,13 @@
                    <button class="home_logout"> <span>Log out</span></button>
                     <% end %>
 
- <div class="dropdown">
-        <a href="#">
-        <button class="dropbtn"><%= @user.username %></button></a>
-        <div class="dropdown-content">
-          <a href="/logout" data-method="delete">Log Out</a>
-        </div>
-      </div>
+<li>
+                    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+            </li>
             <li>
             <a href="/bookings" class="home_nav_links">My bookings</a>
         </li>
