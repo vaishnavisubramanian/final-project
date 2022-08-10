@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bus < ApplicationRecord
   has_many :shifts
   validates :bus_number, uniqueness: true, presence: true

@@ -18,8 +18,8 @@
             <a href="/home" class="list_bus_nav_links" >Home</a>
         </li>
 
-<% elsif %>
-             <% if @presence == 1%>
+<% elsif @presence == 1 %>
+
 
            <% if @user.role == "admin"%>
                  <%= link_to destroy_session_path, method: :delete do %>
@@ -48,7 +48,7 @@
         </li>
 
 
-            <% end %>
+            
             <% end %>
 
 
