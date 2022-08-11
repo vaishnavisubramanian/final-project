@@ -69,21 +69,59 @@
         </p>
 
         <button class="l_bus_bkticket" onclick="bookticket()">
-     Book Tickets
-    </button>
+            Book Tickets
+        </button>
 
     </div>
     <div class="main-popup" id="popup">
         <div class="popup">
-            <div class="overlay" id="overlay"></div>
+            <div class="overlay" id="overlay">
+                <span class="lbus_close" onclick="cross()">&times;</span>
+                <div class="overlay_button_div">
+                    <button onclick="overlaysubmit()">submit</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main-popup2" id="popup2">
+        <div class="popup2">
+            <div class="overlay2" id="overlay2">
+                <span class="lbus_close" onclick="crossign()">&times;</span>
+            </div>
         </div>
 
     </div>
 
+</div>
 
 
-    <script>
-        function bookticket() {
-            document.getElementById("popup").classList.toggle("active");
+
+<script>
+    function bookticket() {
+        document.getElementById("popup").classList.toggle("active");
+    }
+
+    function cross() {
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
         }
-    </script>
+    }
+
+    function overlaysubmit() {
+        document.getElementById("popup2").classList.toggle("show");
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
+        }
+    }
+
+    function crossign() {
+        var crosscut = document.getElementById("popup2");
+        if (crosscut.classList.contains('show')) {
+            crosscut.classList.remove('show');
+        }
+    }
+</script>

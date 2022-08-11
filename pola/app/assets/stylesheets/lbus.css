@@ -336,7 +336,7 @@ li .list_bus_nav_links_bookings {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(1);
     width: 1750px;
     height: 720px;
     background: white;
@@ -348,6 +348,58 @@ li .list_bus_nav_links_bookings {
 }
 
 .main-popup.active .overlay {
+    transition: all 0.2s ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.lbus_close {
+    cursor: pointer;
+    position: absolute;
+    top: 2.9%;
+    right: 0%;
+    padding: 12px 16px;
+    transform: translate(0%, -50%);
+}
+
+.lbus_close:hover {
+    background: #bbb;
+}
+
+.overlay_button_div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.main-popup2 .popup2 {
+    position: absolute;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 1, 0.51);
+    z-index: 1;
+    display: none;
+}
+
+.main-popup2 .overlay2 {
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 900px;
+    height: 600px;
+    background: white;
+    z-index: 2;
+}
+
+.main-popup2.show .popup2 {
+    display: block;
+}
+
+.main-popup2.show .overlay2 {
     transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%) scale(1);
 }
