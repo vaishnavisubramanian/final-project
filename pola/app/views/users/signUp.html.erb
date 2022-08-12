@@ -1,12 +1,11 @@
 <main class="signup_body">
     <form action="/create_new_user" method="post">
-        <input name="authenticity_token" type="hidden" value="<%=
-            form_authenticity_token %>">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
         <% if flash[:error]%>
             <p class="signup_flash_error">
                 <%= flash[:error]%>
             </p>
-        <%end%>
+            <%end%>
                 <p class="signup_text">CREATE</p>
                 <p class="signup_text_acc"> ACCOUNT
                 </p>

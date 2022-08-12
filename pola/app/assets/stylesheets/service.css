@@ -19,80 +19,6 @@
     padding-top: 60px;
 }
 
-
-/*
-.service_icon1 {
-    margin-left: 140px;
-    width: 100px;
-    height: 100px;
-} */
-
-
-/* .service_icon2 {
-    width: 100px;
-    height: 100px;
-    margin-left: 620px;
-    margin-top: -170px;
-    position: absolute;
-} */
-
-
-/* .service_icon3 {
-    width: 100px;
-    height: 100px;
-    margin-left: 140px;
-    margin-top: 48px;
-} */
-
-
-/* .service_icon4 {
-    width: 90px;
-    height: 90px;
-    margin-left: 620px;
-    margin-top: -165px;
-    position: absolute;
-} */
-
-
-/* .service_icon1_text {
-    margin-left: 109px;
-    color: white;
-    font-size: 140%;
-    font-weight: bold;
-    width: 170px;
-} */
-
-
-/* .service_icon2_text {
-    margin-left: 578px;
-    color: white;
-    font-size: 130%;
-    font-weight: bold;
-    width: 200px;
-    margin-top: -49px;
-    position: absolute;
-} */
-
-
-/* .service_icon3_text {
-    margin-left: 119px;
-    color: white;
-    font-size: 130%;
-    font-weight: bold;
-    width: 160px;
-} */
-
-
-/* .service_icon4_text {
-    margin-left: 615px;
-    color: white;
-    font-size: 130%;
-    font-weight: bold;
-    width: 110px;
-    margin-top: -50px;
-    position: absolute;
-} */
-
 #service_icon_div1 {
     width: 200px;
     height: 160px;
@@ -223,7 +149,32 @@
     background-color: #c4a7dc;
     position: absolute;
     margin-left: 30px;
-    /* margin-top: 100px; */
+    text-align: center;
+    cursor: pointer;
+    display: block;
+}
+
+.service_cs_1_text {
+    display: none;
+}
+
+.serice_container_1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.fa-ticket {
+    color: #3b004e;
+    margin-top: 85px;
+    display: block;
 }
 
 .service_cs_2 {
@@ -233,6 +184,13 @@
     background-color: #c4a7dc;
     position: absolute;
     margin-left: 580px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-money-check {
+    color: #3b004e;
+    margin-top: 85px;
 }
 
 .service_cs_3 {
@@ -242,6 +200,13 @@
     background-color: #c4a7dc;
     position: absolute;
     margin-left: 1130px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-ticket-simple {
+    color: #3b004e;
+    margin-top: 85px;
 }
 
 .service_cs_4 {
@@ -252,6 +217,13 @@
     position: absolute;
     margin-left: 30px;
     margin-top: 350px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-receipt {
+    color: #3b004e;
+    margin-top: 85px;
 }
 
 .service_cs_5 {
@@ -262,6 +234,13 @@
     position: absolute;
     margin-left: 580px;
     margin-top: 350px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-address-card {
+    color: #3b004e;
+    margin-top: 85px;
 }
 
 .service_cs_6 {
@@ -272,6 +251,13 @@
     position: absolute;
     margin-left: 1130px;
     margin-top: 350px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-inbox {
+    color: #3b004e;
+    margin-top: 85px;
 }
 
 .service_third_div {

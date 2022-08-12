@@ -101,16 +101,21 @@
 
                                     <% end %>
 
-
     </nav>
+
 
     <div class="home_first_div">
         <p class="home_text">BOOK YOUR TICKET</p>
         <br>
-        <input type="text" name="from" class="home_from_place" placeholder="Select Pickup City" required>
-        <input type="text" name="to" class="home_to_place" placeholder="Select Drop City" required>
-        <input type="text" name="date" class="home_date_of_journey" placeholder="Select Date" onfocus="(this.type='date')" onblur="(this.type='text')" min=<%="#{Date.today+1}" %> required><br>
-        <button type="submit" class="home_search_bus">CHECK AVAILABILITY</button>
+
+        <form action="/search_bus" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="text" name="from_location" class="home_from_place" placeholder="Select Pickup City">
+            <input type="text" name="to_location" class="home_to_place" placeholder="Select Drop City">
+            <input type="text" name="date" class="home_date_of_journey" placeholder="Select Date" onfocus="(this.type='date')" onblur="(this.type='text')" min=<%="#{Date.today+1}" %>><br>
+            <button type="submit" class="home_search_bus">CHECK AVAILABILITY</button>
+        </form>
+
         <div class="home_from_icon_div">
             <%= image_tag 'location_icon.png', alt:'icon',  class: 'home_location_icon' %>
         </div>
