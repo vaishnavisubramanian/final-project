@@ -1,79 +1,105 @@
 <main class="home_body">
     <nav class="home_navbar">
         <% if @presence == 0 %>
-    <li>
-    <a href="/signin">
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
-                </button>
-            </a>
-           </li>
-         <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links" id="home_active">Home</a>
-        </li>
-        <% elsif%>
-            <% if @presence == 1%>
-           <% if @user.role == "admin"%>
-                 <%= link_to destroy_session_path, method: :delete do %>
-                   <button class="home_logout"> <span>Log out</span></button>
-                    <% end %>
-
-                       <li>
-                    <a href="/signin">
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
-                </button>
-            </a>
-            </li>
-                  <li>
-            <a href="/buses/index" class="home_nav_links">List all Bus</a>
-        </li>
-
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links" id="home_active">Home</a>
-        </li>
-
-
-            <% end %>
-            <% end %>
-        <% else %>
-          <%= link_to destroy_session_path, method: :delete do %>
-                   <button class="home_logout"> <span>Log out</span></button>
-                    <% end %>
-
- <div class="dropdown">
-        <a href="#">
-        <button class="dropbtn"><%= @user.username %></button></a>
-        <div class="dropdown-content">
-          <a href="/logout" data-method="delete">Log Out</a>
-        </div>
-      </div>
             <li>
-            <a href="/bookings" class="home_nav_links">My bookings</a>
-        </li>
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links" id="home_active">Home</a>
-        </li>
+                <a href="/signin">
+                    <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+                </a>
+            </li>
+            <li>
+                <a href="/service" class="home_nav_links">Service</a>
+            </li>
+            <li>
+                <a href="/about" class="home_nav_links">About</a>
+            </li>
+            <li>
+                <a href="/home" class="home_nav_links" id="home_active">Home</a>
+            </li>
+            <% elsif%>
+                <% if @presence == 1%>
+                    <% if @user.role == "admin"%>
+                        <div class="home_admin_dropdown" id="home_admin_dropdown">
+                            <ul>
+                                <li class="user_name_drop_button">
+                                    <%= @user.username %>
+                                </li>
+                                <li class="user_logout_drop_button">
+                                    <%= link_to destroy_session_path, method: :delete do %>
+                                        <button class="home_logout"> <span>Log out</span></button>
+                                        <% end %>
+                                </li>
+                            </ul>
+                        </div>
 
-         <% end %>
+                        <li>
+
+                            <button id="home_profile_icon_2">
+                                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                                        </button>
+
+                        </li>
+                        <li>
+                            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+                        </li>
+
+                        <li>
+                            <a href="/service" class="home_nav_links">Service</a>
+                        </li>
+                        <li>
+                            <a href="/about" class="home_nav_links">About</a>
+                        </li>
+                        <li>
+                            <a href="/home" class="home_nav_links" id="home_active">Home</a>
+                        </li>
+
+
+                        <% end %>
+                            <% end %>
+                                <% else %>
+                                    <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                        <ul>
+                                            <li class="user_name_drop_button">
+                                                <%= @user.username %>
+                                            </li>
+                                            <li class="user_logout_drop_button">
+                                                <%= link_to destroy_session_path, method: :delete do %>
+                                                    <button class="home_logout"> <span>Log out</span></button>
+                                                    <% end %>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+
+                                    <li>
+
+                                        <button id="home_profile_icon_2">
+                        <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                    </button>
+
+
+                                    </li>
+
+
+                                    <li>
+                                        <a href="/bookings" class="home_nav_links">My bookings</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/service" class="home_nav_links">Service</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/about" class="home_nav_links">About</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/home" class="home_nav_links" id="home_active">Home</a>
+                                    </li>
+
+                                    <% end %>
 
 
     </nav>
@@ -83,7 +109,7 @@
         <br>
         <input type="text" name="from" class="home_from_place" placeholder="Select Pickup City" required>
         <input type="text" name="to" class="home_to_place" placeholder="Select Drop City" required>
-        <input type="text" name="date" class="home_date_of_journey" placeholder="Select Date" onfocus="(this.type='date')" onblur="(this.type='text')" required><br>
+        <input type="text" name="date" class="home_date_of_journey" placeholder="Select Date" onfocus="(this.type='date')" onblur="(this.type='text')" min=<%="#{Date.today+1}" %> required><br>
         <button type="submit" class="home_search_bus">CHECK AVAILABILITY</button>
         <div class="home_from_icon_div">
             <%= image_tag 'location_icon.png', alt:'icon',  class: 'home_location_icon' %>
@@ -153,33 +179,52 @@
 
 
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.home_carousel').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 2000,
-            slidesToShow: 3,
-            arrows: true,
-            dots: false
-        });
-    })
-</script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.home_carousel').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                slidesToShow: 3,
+                arrows: true,
+                dots: false
+            });
+        })
+    </script>
+    <script>
+        function dropdown() {
+            document.getElementById("home_admin_dropdown").style.display = "block";
+        }
+
+        window.onclick = function(e) {
+            if (!e.target.matches('.home_pola_profile_2')) {
+                var myDropdown = document.getElementById("home_admin_dropdown");
+                if (myDropdown.style.display = "block") {
+                    myDropdown.style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </main>
 <footer class="home_footer">
-<p class="home_footer_text">POLA</p>
-            <img src="<%=asset_path 'insta.png' %>" class="home_icon_insta">
-            <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats">
-            <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail">
+    <p class="home_footer_text">POLA</p>
+    <a href="https://www.instagram.com/">
+        <img src="<%=asset_path 'insta.png' %>" class="home_icon_insta">
+    </a>
+    <a href="https://web.whatsapp.com/">
+        <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats">
+    </a>
+    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlJVXWzhnVxmPxKzlGqjwwTXwTcDCrRZsgZKmNQsxvkSnsxFMVQtnsfHgWWKbNVjPFDbTL">
+        <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail">
+    </a>
+    <div class="home_copyrights">
+        ©2022 polagroup All rights reserved
 
-<div class="home_copyrights">
-©2022 polagroup All rights reserved
-
-</div>
+    </div>
 
 </footer>

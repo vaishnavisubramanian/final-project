@@ -1,0 +1,127 @@
+<div class="list_bus_div">
+
+
+
+    <div class="list_bus_single">
+
+        <p class="list_bus_name">
+            G Travels
+        </p>
+
+        <div class="list_bus_type_div">
+            <p class="list_bus_type">
+                AC
+            </p>
+
+            <p class="list_bus_hifn1">-</p>
+
+            <p class="list_bus_seat_type">
+                Sleeper
+            </p>
+
+            <p class="list_bus_hifn2">-</p>
+
+            <p class="list_bus_seats">
+                28 Seats
+            </p>
+        </div>
+
+        <div class="list_bus_review">
+            5 <i class="fa-solid fa-star"></i>
+
+        </div>
+
+
+
+        <div class="list_bus_left">
+            <p class="list_bus_dept_text">
+                Departure
+            </p>
+
+            <p class="list_bus_depature_time">
+                10:00 AM
+            </p>
+
+            <p class="list_bus_from_place">
+                Chennai
+            </p>
+        </div>
+
+        <p class="list_bus_line1">
+        </p>
+
+        <div class="list_bus_right">
+            <p class="list_bus_arr_text">
+                Arrival
+            </p>
+
+            <p class="list_bus_arrival_time">
+                5:15 PM
+            </p>
+
+            <p class="list_bus_to_place">
+                Trichy
+            </p>
+        </div>
+
+        <p class="l_bus_fare">
+            INR 400
+        </p>
+
+        <button class="l_bus_bkticket" onclick="bookticket()">
+            Book Tickets
+        </button>
+
+    </div>
+    <div class="main-popup" id="popup">
+        <div class="popup">
+            <div class="overlay" id="overlay">
+                <span class="lbus_close" onclick="cross()">&times;</span>
+                <div class="overlay_button_div">
+                    <button onclick="overlaysubmit()">submit</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main-popup2" id="popup2">
+        <div class="popup2">
+            <div class="overlay2" id="overlay2">
+                <span class="lbus_close" onclick="crossign()">&times;</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    function bookticket() {
+        document.getElementById("popup").classList.toggle("active");
+    }
+
+    function cross() {
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
+        }
+    }
+
+    function overlaysubmit() {
+        document.getElementById("popup2").classList.toggle("show");
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
+        }
+    }
+
+    function crossign() {
+        var crosscut = document.getElementById("popup2");
+        if (crosscut.classList.contains('show')) {
+            crosscut.classList.remove('show');
+        }
+    }
+</script>
