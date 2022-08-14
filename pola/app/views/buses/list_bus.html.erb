@@ -75,11 +75,11 @@
             </p>
         </div>
 
-        <p class="l_bus_fare">
+        <p class="lbus_fare">
             INR <%= @bus_shift.fare %>
         </p>
 
-        <button class="l_bus_bkticket" onclick="bookticket()">
+        <button class="lbus_bkticket" onclick="bookticket()">
             Book Tickets
         </button>
 
@@ -90,7 +90,7 @@
             <div class="overlay" id="overlay">
                 <span class="lbus_close" onclick="cross()">&times;</span>
                 <div class="overlay_button_div">
-                    <button onclick="overlaysubmit()">submit</button>
+                    <button onclick="overlaysubmit()">Proceed to pay</button>
                 </div>
             </div>
         </div>
@@ -100,6 +100,19 @@
         <div class="popup2">
             <div class="overlay2" id="overlay2">
                 <span class="lbus_close" onclick="crossign()">&times;</span>
+                <p class="lbus_pay_text">
+                  PAYMENT DETAILS
+                </p>
+                <input placeholder="Card Number" type="text" class="lbus_card_number"/>
+                <br>
+                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
+                <br>
+                <input placeholder="MM" type="text" class="lbus_card_month" />
+                /
+                <input placeholder="YYYY" type="text" class="lbus_card_year"/>
+                <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                <br>
+                <button class="lbus_confirm_btn">Confirm</button>
             </div>
         </div>
     </div>
@@ -111,7 +124,10 @@
 
 
 <% else %>
-     No buses available
+
+    <%= image_tag 'nothing.jpeg', alt:'icon',  class: 'lbus_nothing_illus' %>
+    <p class="lbus_nobus_text">Oops! No buses available</p>
+
 <% end %>
 
 

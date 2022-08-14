@@ -76,7 +76,14 @@
             <div class="overlay" id="overlay">
                 <span class="lbus_close" onclick="cross()">&times;</span>
                 <div class="overlay_button_div">
-                    <button onclick="overlaysubmit()">submit</button>
+
+                <form action="/create_new_user" method="post">
+                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+                </form>
+
+
+                <button onclick="overlaysubmit()">Proceed to pay</button>
                 </div>
             </div>
 
@@ -98,9 +105,10 @@
                 /
                 <input placeholder="YYYY" type="text" class="lbus_card_year"/>
                 <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                <br>
+                <button class="lbus_confirm_btn">Confirm</button>
             </div>
         </div>
-
     </div>
 
 </div>
