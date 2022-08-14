@@ -1,54 +1,65 @@
+<% if @bus_list.length != 0 %>
+
+
+
+
+
 <div class="list_bus_div">
-
-
-
+<% @bus_list.each do |bus| %>
     <div class="list_bus_single">
 
+        <% @bus_shift = BusShift.find(bus) %>
+        <% @bus_main = Bus.find(@bus_shift.id) %>
+
         <p class="list_bus_name">
-            G Travels
+            <%= @bus_main.travel_name %>
         </p>
 
         <div class="list_bus_type_div">
             <p class="list_bus_type">
+                <% if @bus_main.bus_type == true%>
                 AC
+                <% else %>
+                Non-AC
+                <% end %>
             </p>
 
             <p class="list_bus_hifn1">-</p>
 
             <p class="list_bus_seat_type">
+                <% if @bus_main.seat_type == true%>
                 Sleeper
+                <% else %>
+                Seater
+                <% end %>
             </p>
 
             <p class="list_bus_hifn2">-</p>
 
             <p class="list_bus_seats">
-                28 Seats
+                <%= @bus_main.number_of_seats %> Seats
             </p>
         </div>
 
         <div class="list_bus_review">
             5 <i class="fa-solid fa-star"></i>
-
         </div>
 
-
-
-        <div class="list_bus_left">
+         <div class="list_bus_left">
             <p class="list_bus_dept_text">
                 Departure
             </p>
 
             <p class="list_bus_depature_time">
-                10:00 AM
+                <%= @bus_shift.departure_time.strftime("%I:%M %p")%>
             </p>
 
             <p class="list_bus_from_place">
-                Chennai
+                <%= @bus_shift.from_location_id %>
             </p>
         </div>
 
-        <p class="list_bus_line1">
-        </p>
+        <p class="list_bus_line1"></p>
 
         <div class="list_bus_right">
             <p class="list_bus_arr_text">
@@ -56,16 +67,16 @@
             </p>
 
             <p class="list_bus_arrival_time">
-                5:15 PM
+                <%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
             </p>
 
             <p class="list_bus_to_place">
-                Trichy
+                <%= @bus_shift.to_location_id %>
             </p>
         </div>
 
         <p class="l_bus_fare">
-            INR 400
+            INR <%= @bus_shift.fare %>
         </p>
 
         <button class="l_bus_bkticket" onclick="bookticket()">
@@ -73,6 +84,7 @@
         </button>
 
     </div>
+
     <div class="main-popup" id="popup">
         <div class="popup">
             <div class="overlay" id="overlay">
@@ -81,21 +93,26 @@
                     <button onclick="overlaysubmit()">submit</button>
                 </div>
             </div>
-
         </div>
-
     </div>
+
     <div class="main-popup2" id="popup2">
         <div class="popup2">
             <div class="overlay2" id="overlay2">
                 <span class="lbus_close" onclick="crossign()">&times;</span>
             </div>
         </div>
-
     </div>
 
+<% end%>
 </div>
 
+
+
+
+<% else %>
+     No buses available
+<% end %>
 
 
 <script>

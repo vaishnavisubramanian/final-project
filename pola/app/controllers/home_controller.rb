@@ -60,11 +60,24 @@ class HomeController < ApplicationController
     end
     render 'home/bookings'
   end
+
   def search
-    @from_location_id = Place.find_by(place: params[:from_location]).id
-    @to_location_id = Place.find_by(place: params[:to_location]).id
-    puts (@from_location_id != nil)
-    @bus = BusShift.where(from_location_id: from_location_id).and(BusShift.where(to_location_id: to_location_id))
-    puts (@bus != nil)
+    @from_location = Place.find_by(place: params[:from_location])
+    @to_location = Place.find_by(place: params[:to_location])
+    if !@from_location.nil? && !@to_location.nil?
+      @from_location_id = @from_location.id
+      @to_location_id = @to_location.id
+      @bus1 = BusShift.where(from_location_id: @from_location_id).and(BusShift.where(to_location_id: @to_location_id))
+      @bus = []
+      @bus1.each do |bus|
+        @bus << bus.id
+      end
+    else
+      @bus = []
+    end
+
+    session[:searched_bus_array] = @bus
+    puts @bus.length
+    redirect_to bus_list_path
   end
 end

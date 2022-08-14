@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class BusesController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def new
     render 'new'
   end
@@ -51,5 +53,10 @@ class BusesController < ApplicationController
     else
       render plain: 'Failed'
     end
+  end
+
+  def list_bus
+    @bus_list = searched_bus_array
+    session[:searched_bus_array] = []
   end
 end

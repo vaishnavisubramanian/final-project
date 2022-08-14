@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get '/service', to: 'home#service'
   get '/bookings', to: 'home#bookings'
   get '/addbus', to: 'buses#new'
-  get '/listbus', to: 'buses#listbus'
   post '/search_bus', to: 'home#search'
+  get '/buses/search/list', to: 'buses#list_bus', as: :bus_list
 end

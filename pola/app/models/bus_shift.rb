@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BusShift < ApplicationRecord
+  belongs_to :bus
   validates :shift, presence: true
   validates :fare, presence: true
   validates :departure_time, presence: true
