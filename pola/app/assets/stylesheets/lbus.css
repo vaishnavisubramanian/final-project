@@ -1,4 +1,4 @@
-.l_bus_fare {
+.lbus_fare {
     background-color: #F1E1D5;
     color: #37075D;
     font-size: 130%;
@@ -12,7 +12,7 @@
     position: absolute;
 }
 
-.l_bus_bkticket {
+.lbus_bkticket {
     background-color: #37075D;
     color: white;
     font-size: 130%;
@@ -51,7 +51,7 @@
     transform: translate(-50%, -50%) scale(1);
     width: 1750px;
     height: 720px;
-    background: white;
+    background: #37075D;
     z-index: 2;
 }
 
@@ -62,19 +62,6 @@
 .main-popup.active .overlay {
     transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%) scale(1);
-}
-
-.lbus_close {
-    cursor: pointer;
-    position: absolute;
-    top: 2.9%;
-    right: 0%;
-    padding: 12px 16px;
-    transform: translate(0%, -50%);
-}
-
-.lbus_close:hover {
-    background: #bbb;
 }
 
 .overlay_button_div {
@@ -101,10 +88,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 900px;
-    height: 600px;
-    background: white;
+    width: fit-content;
+    height: 390px;
+    background: #37075D;
     z-index: 2;
+    border-radius: 10px;
+    color: #FFC18E;
 }
 
 .main-popup2.show .popup2 {
@@ -115,3 +104,116 @@
     transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%) scale(1);
 }
+
+.lbus_close {
+    cursor: pointer;
+    position: absolute;
+    top: 2.9%;
+    right: 1.2%;
+    /* padding: 12px 16px; */
+    transform: translate(0%, -50%);
+    color: #FFC18E;
+    width: fit-content;
+    height: fit-content;
+    /* border: white 2px solid; */
+    font-weight: bolder;
+}
+
+.lbus_pay_text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 150%;
+    font-weight: 900;
+    color: #FFC18E;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.lbus_card_number {
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-right: 40px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #FFC18E;
+    width: 500px;
+    margin-bottom: 50px;
+    background-color: #37075D;
+    color: #FFC18E;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.lbus_card_holder_name {
+    margin-left: 40px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #FFC18E;
+    width: 500px;
+    margin-bottom: 50px;
+    background-color: #37075D;
+    color: #FFC18E;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.lbus_card_month {
+    margin-left: 40px;
+    margin-top: 10px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #FFC18E;
+    width: 33px;
+    margin-bottom: 50px;
+    background-color: #37075D;
+    color: #FFC18E;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.lbus_slash {
+    color: #FFC18E;
+}
+
+.lbus_card_year {
+    /* margin-left: 40px; */
+    margin-top: 10px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #FFC18E;
+    width: 50px;
+    margin-bottom: 50px;
+    background-color: #37075D;
+    color: #FFC18E;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.lbus_card_cvv {
+    margin-left: 350px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #FFC18E;
+    width: 40px;
+    background-color: #37075D;
+    color: #FFC18E;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+
+/* .lbus_card_number:focus {
+    border-color: white;
+} */
+
+
+/*
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease;
+    text-indent: -100%;
+    opacity: 1;
+} */
