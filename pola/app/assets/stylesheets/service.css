@@ -119,9 +119,12 @@
 }
 
 .service_bus_img {
-    width: 600px;
-    height: 700px;
-    position: absolute;
+    width: 900px;
+    height: 600px;
+    /* position: absolute; */
+    margin-top: -500px;
+    margin-left: 945px;
+    position: static;
 }
 
 .service_customer_service {
@@ -484,7 +487,7 @@
     text-align: center;
     /* border: 2px solid white; */
     position: absolute;
-    margin-left: 590px;
+    margin-left: 570px;
     margin-top: 10px;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
