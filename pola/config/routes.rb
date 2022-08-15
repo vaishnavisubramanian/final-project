@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post '/search_bus', to: 'home#search'
   get '/buses/search/list', to: 'buses#list_bus', as: :bus_list
   get '/delete', to: 'buses#delete'
+  put '/buses/edit/:bus_id', to: 'buses#update_bus'
+  get '/buses/edit/:bus_id', to: 'buses#edit_bus'
 end

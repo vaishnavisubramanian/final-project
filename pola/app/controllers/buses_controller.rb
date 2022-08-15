@@ -31,6 +31,13 @@ class BusesController < ApplicationController
     end
   end
 
+  def edit_bus
+    bus_id = params[:bus_id]
+    @bus = Bus.find(bus_id)
+    @bus_shift = BusShift.where(bus_id: @bus.id).first
+    puts @bus_shift.shift
+  end
+
   def index
     @presence = 0
     if current_user
@@ -59,4 +66,9 @@ class BusesController < ApplicationController
     @bus_list = searched_bus_array
     session[:searched_bus_array] = []
   end
+
+  def update_bus
+    puts "[][][[][][][][][][][][][][][[][][][]"
+  end
+
 end

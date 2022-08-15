@@ -22,16 +22,26 @@
 
 
            <% if @user.role == "admin"%>
-                 <%= link_to destroy_session_path, method: :delete do %>
-                   <button class="list_bus_logout"> <span>Log out</span></button>
-                    <% end %>
+            <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
 
                        <li>
-                    <a href="/signin">
-                <button id="list_bus_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
                 </button>
-            </a>
+
+            </li>
             </li>
                   <li>
             <a href="/buses/index" class="list_bus_nav_links" id="list_bus_active">List all Bus</a>
@@ -53,16 +63,25 @@
 
 
         <% else %>
-          <%= link_to destroy_session_path, method: :delete do %>
-                   <button class="list_bus_logout"> <span>Log out</span></button>
-                    <% end %>
+       <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
 
- <li>
-  <a href="/signin">
+            <li>
+
                 <button id="list_bus_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
                 </button>
-            </a>
+
             </li>
             <li>
             <a href="/bookings" class="list_bus_nav_links">My bookings</a>
@@ -169,6 +188,12 @@
          <i class="fa-solid fa-trash"></i>
       </p>
     <% end %>
+
+    <a href="/buses/edit/<%=bus.id%>" data-method="get" class="list_bus_edit_link">
+      <p class="list_bus_edit_bus">
+      <i class="fa-solid fa-pencil"></i>
+      </p>
+    </a>
 
     <p class="list_bus_fare">
       INR <%= @bus_shift.fare %>

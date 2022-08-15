@@ -4,7 +4,7 @@
             <li>
                 <a href="/signin">
                     <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
                 </a>
             </li>
@@ -17,7 +17,7 @@
             <li>
                 <a href="/home" class="home_nav_links" id="home_active">Home</a>
             </li>
-            <% elsif%>
+            <% elsif %>
                 <% if @presence == 1%>
                     <% if @user.role == "admin"%>
                         <div class="home_admin_dropdown" id="home_admin_dropdown">
@@ -36,7 +36,7 @@
                         <li>
 
                             <button id="home_profile_icon_2">
-                                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                                            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
                                         </button>
 
                         </li>
@@ -134,27 +134,26 @@
 
         <div class="home_carousel">
             <div>
-                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img1" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'home_offer7' %>" class="home_offer_img1" width="450px" height="280px">
                 </h3>
             </div>
             <div>
-                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img2" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'home_offer9' %>" class="home_offer_img2" width="450px" height="280px">
                 </h3>
             </div>
             <div>
-                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img3" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'home_offer8' %>" class="home_offer_img3" width="450px" height="280px">
                 </h3>
 
             </div>
             <div>
-                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img4" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'home_offer5' %>" class="home_offer_img4" width="450px" height="280px">
                 </h3>
 
             </div>
             <div>
-                <h3> <img src="<%= asset_path 'pola-main-bg.png' %>" class="home_offer_img5" width="450px" height="280px">
+                <h3> <img src="<%= asset_path 'home_offer10' %>" class="home_offer_img5" width="450px" height="280px">
                 </h3>
-
             </div>
         </div>
     </div>

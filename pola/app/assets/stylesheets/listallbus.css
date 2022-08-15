@@ -282,8 +282,28 @@ li .list_bus_nav_links_bookings {
 }
 
 .list_bus_delete_link {
-    color: white;
     text-decoration: none;
+}
+
+.list_bus_edit_bus {
+    background-color: #e8bd2e;
+    color: white;
+    font-size: 130%;
+    font-weight: 800;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: fit-content;
+    margin-left: 100px;
+    margin-top: -65.9px;
+    /* border: #37075D 2px solid; */
+}
+
+.list_bus_edit_link {
+    text-decoration: none;
+    width: 20px;
+    /* border: #13a369 2px solid; */
 }
 
 .list_bus_fare {

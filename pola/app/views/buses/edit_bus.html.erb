@@ -1,0 +1,38 @@
+<main class="addbus_body">
+
+
+    <form action="/buses/edit/<%=@bus.id%>" method="put">
+        <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
+        <% if flash[:error]%>
+            <p class="addbus_flash_error">
+                <%= flash[:error]%>
+            </p>
+            <%end%>
+
+                <p class="addbus_text">EDIT</p>
+                <p class="addbus_text_bus">BUS</p>
+                <% bus_type = (@bus.bus_type)?"AC":"Non-AC"%>
+                <% seat_type = (@bus.seat_type)?"Sleeper":"Seater"%>
+
+                <input placeholder="Bus number" type="text" class="addbus_bus_number" id="bus_number" name="bus_number" value= "<%=@bus.bus_number%>" required><br>
+                <input placeholder="Travel's name" type="text" class="addbus_travel_name" id="travel_name"  name="travel_name" value="<%=@bus.travel_name%>" required><br>
+                <input placeholder="Seats" type="number" class="addbus_seats" id="email" name="number_of_seats" value="<%=@bus.number_of_seats%>" required>
+                <input placeholder="Shift" type="number" class="addbus_shift" id="email" name="shift" value="<%=@bus_shift.shift%>" required>
+                <input placeholder="Bus Fare" type="number" class="addbus_fare" id="email" name="fare" value="<%=@bus_shift.fare%>" required><br>
+                <%= select_tag "bus_type", options_for_select([ ["Non - AC",0], ["AC",1] ],[bus_type,@bus.bus_type]),class:"addbus_bus_type" %>
+                <%= select_tag "seat_type", options_for_select([ ["Seater",0], ["Sleeper",1] ],[seat_type,@bus.seat_type]),class:"addbus_seat_type"  %><br>
+                <input placeholder="Departure point" type="text" class="addbus_dep_point" id="from_location" name="from_location" value="<%=@bus_shift.from_location_id%>" required>
+                <input placeholder="Arrival point" type="text" class="addbus_arr_point" id="to_location" name="to_location" onmouseover="myFunction()" value="<%=@bus_shift.to_location_id%>" required><br>
+                <input placeholder="Departure time" type="time" class="addbus_dep_time" id="departure_time" name="departure_time" value="<%=@bus_shift.departure_time%>" required>
+                <input placeholder="Arrival time" type="time" class="addbus_arr_point" id="email" name="arrival_time" value="<%=@bus_shift.arrival_time%>" required><br>
+                <input placeholder="Conductor's Name" type="text" class="addbus_travel_name" id="email" name="conductor_name" value="<%=@bus_shift.conductor_name%>" required><br>
+                <input placeholder="Conductor's Phone Number" type="number" class="addbus_travel_name" id="email" name="conductor_phone_number" value="<%=@bus_shift.conductor_phone_number%>" required><br>
+
+                <button type="submit" class="addbus_add_button">Save</button>
+    </form>
+</main>
+<script>
+function myFunction() {
+  document.getElementById("departure_time").placeholder = "Type departure time here..";
+}
+</script>

@@ -90,6 +90,17 @@
             <div class="overlay" id="overlay">
                 <span class="lbus_close" onclick="cross()">&times;</span>
                 <div class="overlay_button_div">
+
+                <form action="/create_new_user" method="post">
+                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                    Number of seats available - 20 <br>
+                    <input placeholder="Seats you want to book" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Name" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Age" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Phone number" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    Total fare = 900
+                </form>
+
                     <button onclick="overlaysubmit()">Proceed to pay</button>
                 </div>
             </div>
