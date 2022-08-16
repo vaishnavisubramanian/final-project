@@ -61,6 +61,78 @@ class HomeController < ApplicationController
     render 'home/bookings'
   end
 
+  def booking_faq
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render '/home/booking_faq'
+  end
+
+  def payment_faq
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render 'home/payment_faq'
+  end
+  
+  def cancellation_faq
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render '/home/cancellation_faq'
+  end
+
+  def refunds_faq
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render 'home/refunds_faq'
+  end
+
+  def general_faq
+  @presence = 0
+  if current_user
+    @presence = 1
+    @user = User.find(current_user.id)
+  else
+    @presence = 0
+  end
+  @bus = Bus.all
+  render '/home/general_faq'
+end
+
+def account_faq
+  @presence = 0
+  if current_user
+    @presence = 1
+    @user = User.find(current_user.id)
+  else
+    @presence = 0
+  end
+  @bus = Bus.all
+  render 'home/account_faq'
+end
+
   def search
     @from_location = Place.find_by(place: params[:from_location])
     @to_location = Place.find_by(place: params[:to_location])

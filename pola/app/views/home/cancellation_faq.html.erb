@@ -1,0 +1,120 @@
+<main class="service_body">
+    <nav class="home_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+              <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+       </nav>
+
+      <h1 class="booking_title">
+        Cancellation related questions
+      </h1>
+
+
+      <div class="booking_whole_div" >
+          <article>
+            <h2>1. Can I cancel my ticket online?</h2>
+            <p class="faq_text">  Most of the tickets can be cancelled online. However, there are some tickets that can only be cancelled through our call center. However please note that the cancellation fee and cancellation period may differ for specific bus services. Please contact any of our executives for cancellation details on any specific service.</p>
+          </article>
+
+          <article>
+            <h2>2. How can I cancel my bus ticket online? </h2>
+            <p class="faq_text">You need to click on the cancellation link provided on our home page. Enter your ticket number and the e-mail ID that was provided at the time of booking and click on cancel ticket.</p>
+          </article>
+      </div>
+
+</main>

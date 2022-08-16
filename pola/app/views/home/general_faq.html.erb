@@ -1,0 +1,130 @@
+<main class="service_body">
+    <nav class="home_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+              <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+       </nav>
+
+      <h1 class="booking_title">
+        Genreal questions
+      </h1>
+
+
+      <div class="booking_whole_div" >
+          <article>
+            <h2>1. What are the advantages of purchasing a bus ticket with Pola?</h2>
+            <p class="faq_text">
+                -    You can choose your seat<br>
+                -    You can book your bus tickets online, by phone, or in person<br>
+                -    You can choose from over 1500+ bus operators<br>
+                -    You can choose from buses based on boarding points, timing and bus type
+            </p>
+          </article>
+
+          <article>
+            <h2>2. Do I need to register to use redBus? </h2>
+            <p class="faq_text"> Yes, Pola requires its customers to go through a simple registration process. </p>
+          </article>
+
+          <article>
+            <h2>3. Does booking online cost me more?  </h2>
+            <p class="faq_text"> Not at all! The price of the bus ticket is the same as you would get from the bus operator too.The price of hotel voucher is the same or sometimes discounted depending on the season/time.</p>
+          </article>
+      </div>
+
+</main>

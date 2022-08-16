@@ -31,13 +31,6 @@ class BusesController < ApplicationController
     end
   end
 
-  def edit_bus
-    bus_id = params[:bus_id]
-    @bus = Bus.find(bus_id)
-    @bus_shift = BusShift.where(bus_id: @bus.id).first
-    puts @bus_shift.shift
-  end
-
   def index
     @presence = 0
     if current_user
@@ -48,6 +41,21 @@ class BusesController < ApplicationController
     end
     @bus = Bus.all
     render '/buses/index'
+  end
+
+  def list_bus
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+
+    puts '!@#!@!#!#!@@#!##!{}{}{}{}{}{}{}{}}{}{}{}{}{}{}{}{}{]}[]'
+    puts @presence
+    render '/buses/list_bus'
   end
 
   def destroy
@@ -67,8 +75,32 @@ class BusesController < ApplicationController
     session[:searched_bus_array] = []
   end
 
+  def edit_bus
+    bus_id = params[:bus_id]
+    @bus = Bus.find(bus_id)
+    @bus_shift = BusShift.where(bus_id: @bus.id).first
+    puts @bus_shift.shift
+  end
+
   def update_bus
+    bus = Bus.find(params[:bus_id])
+    bus_shift = BusShift.where(bus_id: bus.id).first
+    bus.update(bus_number: params[:bus_number], travel_name: params[:travel_name], number_of_seats: params[:number_of_seats], bus_type: params[:bus_type], seat_type: params[:seat_type])
+    if bus.save
+      id = bus.id
+      from_location = Place.find_by(place: params[:from_location])
+      to_location = Place.find_by(place: params[:to_location])
+      bus_shift.update(departure_time: params[:departure_time], shift: params[:shift],fare: params[:fare], arrival_time: params[:arrival_time], conductor_name: params[:conductor_name], conductor_phone_number: params[:conductor_phone_number], from_location_id: from_location.id ,to_location_id: to_location.id)
+
+      if bus_shift.save
+        redirect_to '/buses/index'
+      else
+        render plain: "Fail"
+      end
+    end
+
     puts "[][][[][][][][][][][][][][][[][][][]"
+
   end
 
 end

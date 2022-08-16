@@ -1,8 +1,7 @@
 <main class="addbus_body">
 
+    <%= form_with url: "/buses/edit/#{@bus.id}", method: :put do |form| %>
 
-    <form action="/buses/edit/<%=@bus.id%>" method="put">
-        <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
         <% if flash[:error]%>
             <p class="addbus_flash_error">
                 <%= flash[:error]%>
@@ -29,7 +28,7 @@
                 <input placeholder="Conductor's Phone Number" type="number" class="addbus_travel_name" id="email" name="conductor_phone_number" value="<%=@bus_shift.conductor_phone_number%>" required><br>
 
                 <button type="submit" class="addbus_add_button">Save</button>
-    </form>
+     <%end%>
 </main>
 <script>
 function myFunction() {

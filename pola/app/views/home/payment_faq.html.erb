@@ -1,0 +1,130 @@
+<main class="service_body">
+    <nav class="home_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+              <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+       </nav>
+
+      <h1 class="booking_title">
+        Payment related questions
+      </h1>
+
+
+      <div class="booking_whole_div" >
+          <article>
+            <h2>1. Does the owner of the credit card with which the ticket is purchased need to be one of the passengers? </h2>
+            <p class="faq_text"> Not at all! A passenger can use any card to pay for the ticket, not necessarily their own. However, please note that the passenger in whose name the ticket is booked should carry a proof of his identity (along with the ticket) at the time of boarding the bus. </p>
+          </article>
+
+          <article>
+            <h2>2. Is it safe to use my credit card on this site? </h2>
+            <p class="faq_text">Transactions on redBus are very safe. We employ the best-in-class security and the transactions done are secure. Apart from being certified by Verisign, redBus uses Secure Socket Layers (SSL) data encryption. Using SSL ensures that the information exchanged with us is never transmitted unencrypted, thus protecting the information from being viewed by unauthorized individuals.</p>
+          </article>
+
+          <article>
+            <h2>3. Payment deducted but booking not done? </h2>
+            <p class="faq_text">Sometimes due to network issues on the bank side we dont receive the payment information and so is the reason the booking fails. During such scenario our executives will immediately contact customer to either confirm the ticket for the same amount or initiate a refund in case customer need not like to proceed with booking.</p>
+          </article>
+
+          <article>
+            <h2>4. Are there any hidden charges (Service Charge or Tax)?
+            <p class="faq_text">YUnlike other online bus booking sites we do not have any hidden charges like Service charge, payment gateway charge etc. </p>
+          </article>
+      </div>
+
+</main>

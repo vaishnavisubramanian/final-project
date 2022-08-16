@@ -120,10 +120,10 @@
 
 .service_bus_img {
     width: 900px;
-    height: 600px;
+    height: 510px;
     /* position: absolute; */
-    margin-top: -500px;
-    margin-left: 945px;
+    margin-top: -450px;
+    margin-left: 949px;
     position: static;
 }
 
@@ -379,7 +379,7 @@
     font-size: 20px;
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    top: 45%;
+    top: 43%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -481,6 +481,7 @@
     font-weight: bold;
     opacity: 0.5;
     margin-top: -20px;
+    margin-left: 22px;
 }
 
 #service_number_div2 {
@@ -505,6 +506,7 @@
     font-weight: bold;
     opacity: 0.5;
     margin-top: -20px;
+    margin-left: -28px;
 }
 
 #service_number_div3 {
@@ -529,6 +531,7 @@
     font-weight: bold;
     opacity: 0.5;
     margin-top: -20px;
+    margin-left: -37px;
 }
 
 #service_number_div4 {
@@ -553,4 +556,5 @@
     font-weight: bold;
     opacity: 0.5;
     margin-top: -20px;
+    margin-left: 5px;
 }

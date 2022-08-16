@@ -1,6 +1,7 @@
+
+
+
 <% if @bus_list.length != 0 %>
-
-
 
 
 
@@ -55,7 +56,7 @@
             </p>
 
             <p class="list_bus_from_place">
-                <%= @bus_shift.from_location_id %>
+                <%= Place.find(@bus_shift.from_location_id).place %>
             </p>
         </div>
 
@@ -71,7 +72,7 @@
             </p>
 
             <p class="list_bus_to_place">
-                <%= @bus_shift.to_location_id %>
+                <%= Place.find(@bus_shift.to_location_id).place %>
             </p>
         </div>
 
@@ -79,9 +80,16 @@
             INR <%= @bus_shift.fare %>
         </p>
 
-        <button class="lbus_bkticket" onclick="bookticket()">
-            Book Tickets
-        </button>
+        <% if @presence == 1 %>
+            <button class="lbus_bkticket" onclick="bookticket()">
+                Book Tickets
+            </button>
+        <%else%>
+                <button class="lbus_bkticket" onclick="window.location.href='/signin'">
+                Book Tickets
+            </button>
+        <% end%>
+
 
     </div>
 
@@ -95,13 +103,12 @@
                     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                     Number of seats available - 20 <br>
                     <input placeholder="Seats you want to book" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Name" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Age" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Phone number" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Main Passenger's Name" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Main Passenger's Age" type="text" class="signup_fullname" id="fullname" name="" required><br>
+                    <input placeholder="Main Passenger's Phone number" type="text" class="signup_fullname" id="fullname" name="" required><br>
                     Total fare = 900
-                </form>
-
                     <button onclick="overlaysubmit()">Proceed to pay</button>
+                 </form>
                 </div>
             </div>
         </div>
@@ -114,16 +121,19 @@
                 <p class="lbus_pay_text">
                   PAYMENT DETAILS
                 </p>
-                <input placeholder="Card Number" type="text" class="lbus_card_number"/>
-                <br>
-                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
-                <br>
-                <input placeholder="MM" type="text" class="lbus_card_month" />
-                /
-                <input placeholder="YYYY" type="text" class="lbus_card_year"/>
-                <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
-                <br>
-                <button class="lbus_confirm_btn">Confirm</button>
+                <form action="/create_new_user" method="post">
+                        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                        <input placeholder="Card Number" type="text" class="lbus_card_number"/>
+                        <br>
+                        <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
+                           <br>
+                        <input placeholder="MM" type="text" class="lbus_card_month" />
+                        /
+                        <input placeholder="YYYY" type="text" class="lbus_card_year"/>
+                        <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                        <br>
+                        <button class="lbus_confirm_btn">Confirm</button>
+                </form>
             </div>
         </div>
     </div>

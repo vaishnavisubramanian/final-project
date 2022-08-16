@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   post '/search_bus', to: 'home#search'
   get '/buses/search/list', to: 'buses#list_bus', as: :bus_list
   get '/delete', to: 'buses#delete'
-  put '/buses/edit/:bus_id', to: 'buses#update_bus'
   get '/buses/edit/:bus_id', to: 'buses#edit_bus'
+  put '/buses/edit/:bus_id', to: 'buses#update_bus'
+  get '/booking_faq', to: 'home#booking_faq'
+  get '/payment_faq', to: 'home#payment_faq'
+  get '/cancellation_faq', to: 'home#cancellation_faq'
+  get '/refunds_faq', to: 'home#refunds_faq'
+  get '/general_faq', to: 'home#general_faq'
+  get '/account_faq', to: 'home#account_faq'
 end

@@ -1,0 +1,135 @@
+<main class="service_body">
+    <nav class="home_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+              <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+            <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+       </nav>
+
+      <h1 class="booking_title">
+        Ticket related questions
+      </h1>
+
+
+      <div class="booking_whole_div" >
+          <article>
+            <h2>1. Is it mandatory to take a printout of the ticket?</h2>
+            <p class="faq_text"> It depends on the bus operator you have booked your ticket with. Even mTickets are available on Pola. For operators that support mTickets, the SMS that is sent to your mobile can be produced at the time of boarding and you will be allowed to travel. For operators that do not support mTickets it is a must to take a printout of the e-ticket and produce it at the time of boarding. The e-ticket is sent to the e-mail ID provided at the time of boarding.</p>
+          </article>
+
+          <article>
+            <h2>2. I've lost my ticket. What should I do now? </h2>
+            <p class="faq_text">A copy of the ticket would have been sent to you by e-mail when you booked it. Please take a printout of that mail and produce it at the time of boarding. If you have not received the ticket e-mail, please call any of our call centers and our executive will re-send you a copy by mail.</p>
+          </article>
+
+          <article>
+            <h2>3. What is an mTicket? </h2>
+            <p class="faq_text">An mTicket is an SMS that is sent to your mobile on booking a ticket with select operators. This SMS has the TIN number and the PNR number along with other ticket related information. It can be used to board the bus. Please note that not all operators accept mTickets.</p>
+          </article>
+
+          <article>
+            <h2>4. I didn’t receive my mTicket. Can you re-send it?  </h2>
+            <p class="faq_text">You can generate your mTicket online. Click on the Print/SMS ticket link on the home page on www.redBus.in. Enter your TIN number mentioned on the e-ticket we e-mailed you. Choose the SMS option and click on Submit. In case you don’t have a copy of the e-ticket either, contact our call center and our executive will assist you.</p>
+          </article>
+
+          <article>
+            <h2>5. I entered the wrong mobile number while booking. Can I get my mTicket on a different number?  </h2>
+            <p class="faq_text">Sure you can. Please contact our call center and our executive will send you the mTicket on your desired number. </p>
+          </article>
+      </div>
+
+</main>
