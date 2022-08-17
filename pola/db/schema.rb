@@ -12,7 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_805_053_942) do
+ActiveRecord::Schema.define(version: 20_220_817_043_233) do
+  create_table 'booking_details', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
+    t.integer 'seats_wanted'
+    t.string 'main_passenger_name'
+    t.integer 'age'
+    t.bigint 'phone_number'
+    t.bigint 'bus_id', null: false
+    t.bigint 'bus_shift_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['bus_id'], name: 'index_booking_details_on_bus_id'
+    t.index ['bus_shift_id'], name: 'index_booking_details_on_bus_shift_id'
+  end
+
   create_table 'bus_shifts', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.integer 'shift', limit: 1
     t.integer 'fare'
@@ -55,6 +68,8 @@ ActiveRecord::Schema.define(version: 20_220_805_053_942) do
     t.string 'role', default: 'customer'
   end
 
+  add_foreign_key 'booking_details', 'bus_shifts'
+  add_foreign_key 'booking_details', 'buses'
   add_foreign_key 'bus_shifts', 'buses', on_update: :cascade, on_delete: :cascade
   add_foreign_key 'bus_shifts', 'places', column: 'from_location_id', on_update: :cascade, on_delete: :cascade
   add_foreign_key 'bus_shifts', 'places', column: 'to_location_id', on_update: :cascade, on_delete: :cascade

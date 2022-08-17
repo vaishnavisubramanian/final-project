@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   get '/refunds_faq', to: 'home#refunds_faq'
   get '/general_faq', to: 'home#general_faq'
   get '/account_faq', to: 'home#account_faq'
+  post '/book/bus', to: 'buses#payment'
 end

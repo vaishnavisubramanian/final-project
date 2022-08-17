@@ -119,6 +119,11 @@
     font-weight: bolder;
 }
 
+.lbus_seats_avail {
+    background-color: #37075D;
+    color: #FFC18E;
+}
+
 .lbus_pay_text {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 150%;
@@ -126,6 +131,12 @@
     color: #37075D;
     margin-top: 30px;
     margin-left: 40px;
+}
+
+.lbus_lbus_total_fare {
+    color: #37075D;
+    margin-left: 40px;
+    font-size: 130%;
 }
 
 .lbus_card_number {

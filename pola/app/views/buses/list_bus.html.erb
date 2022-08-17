@@ -84,6 +84,59 @@
             <button class="lbus_bkticket" onclick="bookticket()">
                 Book Tickets
             </button>
+
+            <div class="main-popup" id="popup">
+                <div class="popup">
+                    <div class="overlay" id="overlay">
+                        <span class="lbus_close" onclick="cross()">&times;</span>
+                        <div class="overlay_button_div">
+
+                        <form action="/book/bus" method="post">
+                            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                            <p class="lbus_seats_avail" id="lbus_seats_avail">
+                                Number of seats available - 20
+                            </p><br>
+                            <input placeholder="Seats you want to book" type="text" class="lbus_seats_wanted" name="seats_wanted" required><br>
+                            <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
+                            <input placeholder="Main Passenger's Age" type="text" class="lbus_age"  name="age" required><br>
+                            <input placeholder="Main Passenger's Phone number" type="text" class="lbus_phone_number" name="phone_number" required><br>
+
+                            <button onclick="overlaysubmit()" class="lbus_proceed_btn">Proceed to pay</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-popup2" id="popup2">
+                <div class="popup2">
+                    <div class="overlay2" id="overlay2">
+                        <span class="lbus_close" onclick="crossign()">&times;</span>
+                        <p class="lbus_pay_text">
+                        PAYMENT DETAILS
+                        </p>
+
+                        <p class="lbus_lbus_total_fare">
+                            Amount to be paid is ₹900
+                        </p>
+
+                        <form action="/create_new_user" method="post">
+                                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                                <input placeholder="Card Number" type="text" class="lbus_card_number"/>
+                                <br>
+                                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
+                                <br>
+                                <input placeholder="MM" type="text" class="lbus_card_month" />
+                                /
+                                <input placeholder="YYYY" type="text" class="lbus_card_year"/>
+                                <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                                <br>
+                                <button class="lbus_confirm_btn">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         <%else%>
                 <button class="lbus_bkticket" onclick="window.location.href='/signin'">
                 Book Tickets
@@ -93,50 +146,7 @@
 
     </div>
 
-    <div class="main-popup" id="popup">
-        <div class="popup">
-            <div class="overlay" id="overlay">
-                <span class="lbus_close" onclick="cross()">&times;</span>
-                <div class="overlay_button_div">
 
-                <form action="/create_new_user" method="post">
-                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                    Number of seats available - 20 <br>
-                    <input placeholder="Seats you want to book" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Main Passenger's Name" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Main Passenger's Age" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    <input placeholder="Main Passenger's Phone number" type="text" class="signup_fullname" id="fullname" name="" required><br>
-                    Total fare = 900
-                    <button onclick="overlaysubmit()">Proceed to pay</button>
-                 </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-popup2" id="popup2">
-        <div class="popup2">
-            <div class="overlay2" id="overlay2">
-                <span class="lbus_close" onclick="crossign()">&times;</span>
-                <p class="lbus_pay_text">
-                  PAYMENT DETAILS
-                </p>
-                <form action="/create_new_user" method="post">
-                        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                        <input placeholder="Card Number" type="text" class="lbus_card_number"/>
-                        <br>
-                        <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
-                           <br>
-                        <input placeholder="MM" type="text" class="lbus_card_month" />
-                        /
-                        <input placeholder="YYYY" type="text" class="lbus_card_year"/>
-                        <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
-                        <br>
-                        <button class="lbus_confirm_btn">Confirm</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
 <% end%>
 </div>

@@ -84,7 +84,7 @@ class HomeController < ApplicationController
     @bus = Bus.all
     render 'home/payment_faq'
   end
-  
+
   def cancellation_faq
     @presence = 0
     if current_user
@@ -110,28 +110,28 @@ class HomeController < ApplicationController
   end
 
   def general_faq
-  @presence = 0
-  if current_user
-    @presence = 1
-    @user = User.find(current_user.id)
-  else
     @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render '/home/general_faq'
   end
-  @bus = Bus.all
-  render '/home/general_faq'
-end
 
-def account_faq
-  @presence = 0
-  if current_user
-    @presence = 1
-    @user = User.find(current_user.id)
-  else
+  def account_faq
     @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+    else
+      @presence = 0
+    end
+    @bus = Bus.all
+    render 'home/account_faq'
   end
-  @bus = Bus.all
-  render 'home/account_faq'
-end
 
   def search
     @from_location = Place.find_by(place: params[:from_location])
