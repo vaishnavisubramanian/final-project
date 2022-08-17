@@ -75,8 +75,21 @@
     font-weight: 600;
 }
 
+#show-password1 {
+    margin-top: 30px;
+    margin-left: 1100px;
+}
+
+.show_pw_text1 {
+    color: #FFC18E;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 1120px;
+    font-weight: 500;
+}
+
 .signin_button {
-    margin-top: 72px;
+    margin-top: 50px;
     margin-left: 1100px;
     background-color: #FFC18E;
     width: 555px;

@@ -2,7 +2,7 @@
 
 class BusesController < ApplicationController
   skip_before_action :ensure_user_logged_in
-
+  @@booking_detail = nil
   def new
     render 'new'
   end
@@ -67,7 +67,6 @@ class BusesController < ApplicationController
     end
 
     @bus_list = searched_bus_array
-    session[:searched_bus_array] = []
   end
 
   def edit_bus
@@ -86,8 +85,14 @@ class BusesController < ApplicationController
       id = bus.id
       from_location = Place.find_by(place: params[:from_location])
       to_location = Place.find_by(place: params[:to_location])
-      bus_shift.update(departure_time: params[:departure_time], shift: params[:shift], fare: params[:fare],
-                       arrival_time: params[:arrival_time], conductor_name: params[:conductor_name], conductor_phone_number: params[:conductor_phone_number], from_location_id: from_location.id, to_location_id: to_location.id)
+      bus_shift.update(departure_time: params[:departure_time],
+                        shift: params[:shift],
+                        fare: params[:fare],
+                        arrival_time: params[:arrival_time],
+                        conductor_name: params[:conductor_name],
+                        conductor_phone_number: params[:conductor_phone_number],
+                        from_location_id: from_location.id,
+                        to_location_id: to_location.id)
 
       if bus_shift.save
         redirect_to '/buses/index'
@@ -99,5 +104,33 @@ class BusesController < ApplicationController
     puts '[][][[][][][][][][][][][][][[][][][]'
   end
 
-  def payment; end
+  def payment
+    current_user
+    booking_detail = BookingDetail.new(bus_id: params[:bus_id],bus_shift_id: params[:bus_shift_id],
+    seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
+  phone_number: params[:phone_number])
+  if booking_detail.save
+    @@booking_detail = booking_detail.id
+    @user = User.find(current_user.id)
+    @bus_list = searched_bus_array
+    redirect_to '/buses/payment/pay'
+  else
+    render plain: "Fail"
+  end
+  end
+
+  def booking_detail_returner
+    return @@booking_detail
+  end
+
+  def success
+    puts params[:booking_detail_id]
+    payment_detail = PaymentDetail.new(booking_details_id: params[:booking_detail_id],card_number: params[:card_number], card_holder_name: params[:card_holder_name], month: params[:month], year: params[:year], cvv: params[:cvv])
+    payment_detail.save
+    render plain: "Success"
+  end
+  def pay
+    @booking_detail = booking_detail_returner
+  end
+
 end

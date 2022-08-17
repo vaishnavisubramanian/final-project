@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   get '/general_faq', to: 'home#general_faq'
   get '/account_faq', to: 'home#account_faq'
   post '/book/bus', to: 'buses#payment'
+  post '/book/payment', to: 'buses#success'
+  get '/buses/payment/pay', to: 'buses#pay'
 end

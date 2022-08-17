@@ -12,6 +12,19 @@
                 <a href="/signup" class="signin_signup">Sign up</a>
                 <input placeholder="Mail ID" type="email" class="signin_email" id="email" name="user[email]"><br>
                 <input placeholder="Password" type="password" class="signin_password" id="password" name="user[password]"><br>
+                <input type="checkbox" id="show-password1" value="Show password">
+                <p class="show_pw_text1">Show password </p><br>
                 <button type="submit" class="signin_button">Sign in</button>
     </form>
 </main>
+<script>
+    function show_password() {
+        let check = document.getElementById('show-password1');
+        if (check.checked) {
+            document.getElementById('password').type = "text";
+        } else {
+            document.getElementById('password').type = "password";
+        }
+    }
+    document.getElementById('show-password1').addEventListener("change", show_password);
+</script>

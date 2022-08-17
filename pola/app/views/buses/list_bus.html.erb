@@ -191,26 +191,32 @@
 
                             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                             <p class="lbus_seats_avail" id="lbus_seats_avail">
-                                Number of seats available - 20
+                            <% @count = 0 %>
+                            <%BookingDetail.where(bus_id: @bus_main.id).each do|detail|%>
+                                  <%@count += detail.seats_wanted%>
+                            <%end%>
+                                Number of seats available - <%= @bus_main.number_of_seats - @count%>
                                 <span class="lbus_close1" onclick="cross()">&times;</span>
 
                             </p><br>
+                            <input type="hidden" name="bus_id" value=<%= @bus_main.id %>>
+                            <input type="hidden" name="bus_shift_id" value=<%= @bus_shift.id %>>
                             <input placeholder="Seats you want to book" type="text" class="lbus_seats_wanted" name="seats_wanted" required><br>
                             <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
                             <input placeholder="Main Passenger's Age" type="text" class="lbus_age"  name="age" required><br>
                             <input placeholder="Main Passenger's Phone number" type="text" class="lbus_phone_number" name="phone_number" required><br>
 
-                            <button onclick="overlaysubmit()" class="lbus_proceed_btn">Proceed to pay</button>
+                            <button onclick="overlaysubmit()" type="submit" class="lbus_proceed_btn">Proceed to pay</button>
                         </form>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="main-popup2" id="popup2">
+            <% if @booking_detail != nil%>
                 <div class="popup2">
                     <div class="overlay2" id="overlay2">
-                        <span class="lbus_close" onclick="crossign()">&times;</span>
+                        <%# <span class="lbus_close" onclick="crossign()">&times;</span> %>
                         <p class="lbus_pay_text">
                         PAYMENT DETAILS
                         </p>
@@ -219,21 +225,23 @@
                             Amount to be paid is ₹900
                         </p>
 
-                        <form action="/create_new_user" method="post">
+                        <form action="/book/payment" method="post">
                                 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                                <input placeholder="Card Number" type="text" class="lbus_card_number"/>
+                                <% @booking_detail_id = BookingDetail.find(@booking_detail).id%>
+                                <input name="booking_detail_id" type="hidden" value=<%=@booking_detail_id%>>
+                                <input placeholder="Card Number" type="text" class="lbus_card_number" name="card_number"/>
                                 <br>
-                                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
+                                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" />
                                 <br>
-                                <input placeholder="MM" type="text" class="lbus_card_month" />
-                                /
-                                <input placeholder="YYYY" type="text" class="lbus_card_year"/>
-                                <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                                <input placeholder="MM" type="text" class="lbus_card_month" name="month" />
+                                <input placeholder="YYYY" type="text" class="lbus_card_year" name="year"/>
+                                <input placeholder="CVV" type="text" class="lbus_card_cvv" name="cvv"/>
                                 <br>
-                                <button class="lbus_confirm_btn">Confirm</button>
+                                <button class="lbus_confirm_btn" type="submit">Confirm</button>
                         </form>
                     </div>
                 </div>
+            <% end %>
             </div>
 
         <%else%>
