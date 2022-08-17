@@ -1,6 +1,8 @@
 <main class="service_body">
     <nav class="home_navbar">
+
         <% if @presence == 0 %>
+
     <li><a href="/signin">
                 <button id="home_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
@@ -80,9 +82,7 @@
                 </button>
 
             </li>
-            <li>
-            <a href="/bookings" class="home_nav_links">My bookings</a>
-        </li>
+
         <li>
             <a href="/service" class="home_nav_links" id="home_active">Service</a>
         </li>

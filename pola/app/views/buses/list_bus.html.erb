@@ -1,4 +1,101 @@
+     <nav class="home_navbar">
+        <% if @presence == 0 %>
+   <li>
+    <a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links" >About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
 
+ <% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+        <% else %>
+
+           <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+ <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+
+        <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+    </nav>
 
 
 <% if @bus_list.length != 0 %>
@@ -88,13 +185,15 @@
             <div class="main-popup" id="popup">
                 <div class="popup">
                     <div class="overlay" id="overlay">
-                        <span class="lbus_close" onclick="cross()">&times;</span>
+                        <form action="/book/bus" method="post">
+
                         <div class="overlay_button_div">
 
-                        <form action="/book/bus" method="post">
                             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                             <p class="lbus_seats_avail" id="lbus_seats_avail">
                                 Number of seats available - 20
+                                <span class="lbus_close1" onclick="cross()">&times;</span>
+
                             </p><br>
                             <input placeholder="Seats you want to book" type="text" class="lbus_seats_wanted" name="seats_wanted" required><br>
                             <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
@@ -143,23 +242,17 @@
             </button>
         <% end%>
 
+        </div>
 
-    </div>
+        <% end%>
+        </div>
 
+        <% else %>
 
+                 <%= image_tag 'nothing.jpeg', alt:'icon',  class: 'lbus_nothing_illus' %>
+                 <p class="lbus_nobus_text">Oops! No buses available</p>
 
-<% end%>
-</div>
-
-
-
-
-<% else %>
-
-    <%= image_tag 'nothing.jpeg', alt:'icon',  class: 'lbus_nothing_illus' %>
-    <p class="lbus_nobus_text">Oops! No buses available</p>
-
-<% end %>
+        <% end %>
 
 
 <script>
@@ -189,3 +282,17 @@
         }
     }
 </script>
+    <script>
+        function dropdown() {
+            document.getElementById("home_admin_dropdown").style.display = "block";
+        }
+
+        window.onclick = function(e) {
+            if (!e.target.matches('.home_pola_profile_2')) {
+                var myDropdown = document.getElementById("home_admin_dropdown");
+                if (myDropdown.style.display = "block") {
+                    myDropdown.style.display = "none";
+                }
+            }
+        }
+    </script>

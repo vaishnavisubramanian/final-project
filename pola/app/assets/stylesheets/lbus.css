@@ -49,10 +49,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 1750px;
+    width: 1000px;
     height: 720px;
     background: #F1E1D5;
     z-index: 2;
+    border-radius: 10px;
 }
 
 .main-popup.active .popup {
@@ -66,8 +67,8 @@
 
 .overlay_button_div {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    /* border: #37075D 2px solid; */
+    top: 0%;
 }
 
 .main-popup2 .popup2 {
@@ -105,6 +106,20 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
+.lbus_close1 {
+    cursor: pointer;
+    position: absolute;
+    top: 28%;
+    right: 1.5%;
+    /* padding: 12px 16px; */
+    transform: translate(0%, -50%);
+    color: #F1E1D5;
+    width: fit-content;
+    height: fit-content;
+    /* border: white 2px solid; */
+    font-weight: bold;
+}
+
 .lbus_close {
     cursor: pointer;
     position: absolute;
@@ -116,33 +131,122 @@
     width: fit-content;
     height: fit-content;
     /* border: white 2px solid; */
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .lbus_seats_avail {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: #37075D;
-    color: #FFC18E;
+    color: #F1E1D5;
+    font-size: 190%;
+    font-weight: 900;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 180px;
+    padding-right: 180px;
+    margin-top: 0px;
+    position: absolute;
+    width: 640px;
+    /* border: white 2px soli3d; */
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.lbus_seats_wanted {
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-right: 25px;
+    padding-left: 28px;
+    font-weight: 600;
+    margin-top: 150px;
+    margin-left: 230px;
+}
+
+.lbus_passenger_name {
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-left: 230px;
+}
+
+.lbus_age {
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-left: 230px;
+}
+
+.lbus_phone_number {
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-left: 230px;
+}
+
+.lbus_proceed_btn {
+    margin-top: 72px;
+    margin-left: 100px;
+    background-color: #FFC18E;
+    width: 555px;
+    height: 78px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 190%;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-left: 230px;
 }
 
 .lbus_pay_text {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 150%;
+    font-size: 160%;
     font-weight: 900;
     color: #37075D;
     margin-top: 30px;
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 .lbus_lbus_total_fare {
     color: #37075D;
-    margin-left: 40px;
+    margin-left: 60px;
     font-size: 130%;
 }
 
 .lbus_card_number {
-    margin-left: 40px;
+    margin-left: 60px;
     margin-top: 10px;
-    margin-right: 40px;
+    margin-right: 60px;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #37075D;
@@ -156,7 +260,7 @@
 }
 
 .lbus_card_holder_name {
-    margin-left: 40px;
+    margin-left: 60px;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #37075D;
@@ -170,8 +274,7 @@
 }
 
 .lbus_card_month {
-    margin-left: 40px;
-    margin-top: 10px;
+    margin-left: 60px;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #37075D;
@@ -190,7 +293,6 @@
 
 .lbus_card_year {
     /* margin-left: 40px; */
-    margin-top: 10px;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #37075D;
