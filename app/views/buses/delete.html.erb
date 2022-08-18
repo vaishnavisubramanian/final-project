@@ -1,0 +1,154 @@
+<div class="list_bus_div">
+
+    <div class="list_bus_single">
+
+        <p class="list_bus_name">
+            G Travels
+        </p>
+
+        <div class="list_bus_type_div">
+            <p class="list_bus_type">
+                AC
+            </p>
+
+            <p class="list_bus_hifn1">-</p>
+
+            <p class="list_bus_seat_type">
+                Sleeper
+            </p>
+
+            <p class="list_bus_hifn2">-</p>
+
+            <p class="list_bus_seats">
+                28 Seats
+            </p>
+        </div>
+
+        <div class="list_bus_review">
+            5 <i class="fa-solid fa-star"></i>
+
+        </div>
+
+
+
+        <div class="list_bus_left">
+            <p class="list_bus_dept_text">
+                Departure
+            </p>
+
+            <p class="list_bus_depature_time">
+                10:00 AM
+            </p>
+
+            <p class="list_bus_from_place">
+                Chennai
+            </p>
+        </div>
+
+        <p class="list_bus_line1">
+        </p>
+
+        <div class="list_bus_right">
+            <p class="list_bus_arr_text">
+                Arrival
+            </p>
+
+            <p class="list_bus_arrival_time">
+                5:15 PM
+            </p>
+
+            <p class="list_bus_to_place">
+                Trichy
+            </p>
+        </div>
+
+        <p class="lbus_fare">
+            INR 400
+        </p>
+
+        <button class="lbus_bkticket" onclick="bookticket()">
+            Book Tickets
+        </button>
+
+    </div>
+    <div class="main-popup" id="popup">
+        <div class="popup">
+            <div class="overlay" id="overlay">
+            <form action="/create_new_user" method="post">
+                <div class="overlay_button_div">
+
+                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                    <p class="lbus_seats_avail" id="lbus_seats_avail">
+                                Number of seats available - 20
+                                <span class="lbus_close1" onclick="cross()">&times;</span>
+                    </p><br>
+                    <input placeholder="Number of seats you want to book" type="text" class="lbus_seats_wanted" name="seats_wanted" required><br>
+                            <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
+                            <input placeholder="Main Passenger's Age" type="text" class="lbus_age"  name="age" required><br>
+                            <input placeholder="Main Passenger's Phone number" type="text" class="lbus_phone_number" name="phone_number" required><br>
+
+                <button onclick="overlaysubmit()" class="lbus_proceed_btn"> Proceed to pay</button>
+                 </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main-popup2" id="popup2">
+        <div class="popup2">
+            <div class="overlay2" id="overlay2">
+                <span class="lbus_close" onclick="crossign()">&times;</span>
+                <p class="lbus_pay_text">
+                  PAYMENT DETAILS
+                </p>
+
+                <p class="lbus_lbus_total_fare">
+                    Amount to be paid is ₹900
+                </p>
+
+                <input placeholder="Card Number" type="text" class="lbus_card_number"/>
+                <br>
+                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" />
+                <br>
+                <input placeholder="MM" type="text" class="lbus_card_month" />
+                /
+                <input placeholder="YYYY" type="text" class="lbus_card_year"/>
+                <input placeholder="CVV" type="text" class="lbus_card_cvv"/>
+                <br>
+                <button class="lbus_confirm_btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    function bookticket() {
+        document.getElementById("popup").classList.toggle("active");
+    }
+
+    function cross() {
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
+        }
+    }
+
+    function overlaysubmit() {
+        document.getElementById("popup2").classList.toggle("show");
+        var crosscut = document.getElementById("popup");
+        if (crosscut.classList.contains('active')) {
+            crosscut.classList.remove('active');
+        }
+    }
+
+    function crossign() {
+        var crosscut = document.getElementById("popup2");
+        if (crosscut.classList.contains('show')) {
+            crosscut.classList.remove('show');
+        }
+    }
+</script>

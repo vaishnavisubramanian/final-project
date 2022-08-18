@@ -1,0 +1,150 @@
+.pay_bg {
+    position: absolute;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 1, 0.51);
+    z-index: 1;
+}
+
+.pay_whole_div {
+    /* border: black 2px solid; */
+    background-color: #F1E1D5;
+    width: 680px;
+    height: 550px;
+    background: #F1E1D5;
+    z-index: 2;
+    border-radius: 10px;
+    margin-left: 560px;
+    margin-top: 200px;
+}
+
+.lbus_pay_text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #37075D;
+    color: #F1E1D5;
+    font-size: 190%;
+    font-weight: 900;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0px;
+    position: absolute;
+    width: 640px;
+    /* border: white 2px soli3d; */
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.lbus_lbus_total_fare {
+    color: #37075D;
+    margin-left: 60px;
+    font-size: 130%;
+    padding-top: 130px;
+    margin-left: 60px;
+}
+
+.lbus_card_number {
+    width: 500px;
+    height: 60px;
+    background-color: white;
+    color: #37075D;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    padding-right: 25px;
+    padding-left: 28px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    margin-left: 60px;
+}
+
+.lbus_card_holder_name {
+    width: 500px;
+    height: 60px;
+    background-color: white;
+    color: #37075D;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    padding-right: 25px;
+    padding-left: 28px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.lbus_card_month {
+    margin-left: 60px;
+    height: 50px;
+    background-color: white;
+    width: 33px;
+    margin-bottom: 50px;
+    color: #37075D;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    padding-right: 25px;
+    padding-left: 25px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.lbus_slash {
+    color: #37075D;
+}
+
+.lbus_card_year {
+    padding-right: 25px;
+    padding-left: 25px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    color: #37075D;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+}
+
+.lbus_card_cvv {
+    margin-left: 260px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    color: #37075D;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    padding-right: 25px;
+    padding-left: 25px;
+    width: 40px;
+    height: 50px;
+}
+
+.lbus_confirm_btn {
+    font-size: 140%;
+    font-weight: 600;
+    background-color: #FFC18E;
+    color: #37075D;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 234px;
+    padding-right: 234px;
+    margin-left: 60px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    height: 60px;
+}

@@ -1,0 +1,30 @@
+.booking_title {
+    background-color: #3b004e;
+    color: white;
+    font-size: 250%;
+    font-weight: 900;
+    padding-left: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 1749px;
+    margin-left: -9px;
+    margin-top: 0px;
+}
+
+.booking_whole_div {
+    margin-left: 100px;
+    /* border: #3b004e 2px solid; */
+    padding-right: 100px;
+    margin-top: 70px;
+}
+
+article {
+    color: #3b004e;
+}
+
+.faq_text {
+    padding-left: 37px;
+    font-size: large;
+    letter-spacing: 0.1ex;
+    text-align: justify;
+}

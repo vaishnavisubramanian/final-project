@@ -1,0 +1,132 @@
+.signup_body {
+    width: 1848px;
+    height: 968px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("signup_bg_pola.png");
+    background-size: 1848px 1000px;
+    background-repeat: no-repeat;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.signup_text {
+    margin-top: 180px;
+    margin-left: 100px;
+    color: white;
+    font-size: 450%;
+    font-weight: bolder;
+}
+
+.signup_text_acc {
+    margin-top: -160px;
+    margin-left: 430px;
+    color: #FFC18E;
+    font-size: 450%;
+    font-weight: bolder;
+    position: absolute;
+}
+
+.signup_text2 {
+    margin-top: -40px;
+    margin-left: 100px;
+    color: #ffffff;
+    font-size: 126%;
+    position: absolute;
+}
+
+.signup_signin {
+    margin-left: 290px;
+    font-size: 126%;
+    color: #FFC18E;
+    text-decoration: none;
+    position: absolute;
+    margin-top: -40px;
+    font-weight: bolder;
+}
+
+.signup_fullname {
+    margin-top: 30px;
+    margin-left: 100px;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.signup_email {
+    margin-top: 30px;
+    margin-left: 100px;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+.signup_password {
+    margin-top: 30px;
+    margin-left: 100px;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 120%;
+    padding-left: 28px;
+    padding-right: 25px;
+    font-weight: 600;
+}
+
+#show-password {
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.show_pw_text {
+    color: #FFC18E;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 120px;
+    font-weight: 500;
+}
+
+.signup_create_button {
+    margin-top: 50px;
+    margin-left: 100px;
+    background-color: #FFC18E;
+    width: 555px;
+    height: 78px;
+    border-radius: 10px;
+    border: none;
+    color: #37075D;
+    font-size: 190%;
+    font-weight: bolder;
+}
+
+.signup_flash_error {
+    background-color: #FFC18E;
+    text-align: center;
+    color: #37075D;
+    height: auto;
+    width: 600px;
+    border-radius: 10px;
+    font-size: larger;
+    letter-spacing: 0.1em;
+    float: right;
+    margin-top: -170px;
+    font-weight: 500;
+    padding: 15px;
+}

@@ -1,0 +1,123 @@
+<main class="service_body">
+    <nav class="home_navbar">
+        <% if @presence == 0 %>
+    <li><a href="/signin">
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+                </button>
+            </a>
+</li>
+         <li>
+            <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+<% elsif%>
+            <% if @presence == 1%>
+           <% if @user.role == "admin"%>
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                       <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+                  <li>
+            <a href="/buses/index" class="home_nav_links">List all Bus</a>
+        </li>
+
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links">Home</a>
+        </li>
+
+
+            <% end %>
+            <% end %>
+
+
+        <% else %>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+                                                <ul>
+                                                    <li class="user_name_drop_button">
+                                                        <%= @user.username %>
+                                                    </li>
+                                                    <li class="user_logout_drop_button">
+                                                        <%= link_to destroy_session_path, method: :delete do %>
+                                                            <button class="home_logout"> <span>Log out</span></button>
+                                                            <% end %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+              <li>
+
+                <button id="home_profile_icon_2">
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+                </button>
+
+            </li>
+         
+        <li>
+            <a href="/service" class="home_nav_links" >Service</a>
+        </li>
+        <li>
+            <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+            <a href="/home" class="home_nav_links" >Home</a>
+        </li>
+
+
+
+         <% end %>
+
+
+       </nav>
+
+      <h1 class="booking_title">
+        Refunds related questions
+      </h1>
+
+
+      <div class="booking_whole_div" >
+          <article>
+            <h2>1. I missed the bus. Do I get a refund?</h2>
+            <p class="faq_text">  redBus provides a 100% refund if the bus is missed due to either Pola or its’ partner company's fault. However, if the bus is missed due to any other reason not directly related to Pola no refund is provided. </p>
+          </article>
+
+          <article>
+            <h2>2. How can I get a refund in case I cancel my ticket? </h2>
+            <p class="faq_text">In respect of tickets canceled by the passenger or bus cancelled by the operator, we will refund the amount applicable to the respective Credit card / Debit Card that was used for booking the ticket. Refunds are initiated automatically as soon as you cancel your ticket from the App. It might take 8-10 Bank Working Days to get the amount credited to your account.</p>
+          </article>
+
+          <article>
+            <h2>3. Refund amount not yet credited to my account?</h2>
+            <p class="faq_text">Refund process is automatic and is initiated instantly. It typically takes about 8-10 bank working days for all credit card, debit card and netbanking transactions. Sometimes the refunds dont get credited to your account even after 10 days due to bank holidays and delay in processing your credit or refund process being interrupted by network error or systems error at the banks side. In such cases you need to contact your banks Charge Back / Dispute Resolution Team and raise a refund credit request mentioning the transaction ID you have received from your bank SMS/Email. You can check your banks website to get the customer support phone contact number.</p>
+          </article>
+      </div>
+
+</main>

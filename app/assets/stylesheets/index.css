@@ -1,0 +1,52 @@
+.index_body {
+    background-image: url("landing_page_polaa.png");
+    background-repeat: no-repeat;
+    background-size: 1870px 1000px;
+    width: 1870px;
+    height: 1000px;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.index_welcome {
+    color: white;
+    font-size: 500%;
+    margin-top: 170px;
+    margin-left: 130px;
+}
+
+.index_pola {
+    color: #FFC18E;
+    font-size: 600%;
+    margin-left: 130px;
+    margin-top: -40px;
+}
+
+.index_text {
+    color: white;
+    font-size: larger;
+    margin-left: 130px;
+    width: 750px;
+    margin-top: -30px;
+    line-height: 1.5;
+}
+
+.index_start_button {
+    background-color: #FFC18E;
+    color: black;
+    margin-left: 130px;
+    height: 40px;
+    margin-top: 30px;
+    font-size: larger;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: none;
+}
+
+.index_start_button:hover {
+    border: 2px solid #3B065E;
+    cursor: pointer;
+}
