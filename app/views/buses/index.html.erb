@@ -79,11 +79,11 @@
             <li>
 
                 <button id="list_bus_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2' %>
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'list_bus_pola_profile_2', onclick:'dropdown()' %>
                 </button>
 
             </li>
-          
+
         <li>
             <a href="/service" class="list_bus_nav_links">Service</a>
         </li>
@@ -201,3 +201,17 @@
 <% end %>
 
 </div>
+<script>
+        function dropdown() {
+            document.getElementById("home_admin_dropdown").style.display = "block";
+        }
+
+        window.onclick = function(e) {
+            if (!e.target.matches('.home_pola_profile_2')) {
+                var myDropdown = document.getElementById("home_admin_dropdown");
+                if (myDropdown.style.display = "block") {
+                    myDropdown.style.display = "none";
+                }
+            }
+        }
+</script>

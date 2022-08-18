@@ -90,13 +90,8 @@
             <a href="/home" class="home_nav_links">Home</a>
         </li>
 
-
-
          <% end %>
-
-
     </nav>
-
 
 <% if @bus_list.length != 0 %>
 
@@ -204,9 +199,9 @@
                             <input type="hidden" value = <%= @bus_main.number_of_seats - @count%> name="number_of_seats_available">
                             <input type="hidden" name="bus_id" value=<%= @bus_main.id %>>
                             <input type="hidden" name="bus_shift_id" value=<%= @bus_shift.id %>>
-                            <input placeholder="Seats you want to book" type="text" class="lbus_seats_wanted" name="seats_wanted" required><br>
+                            <input placeholder="Seats you want to book" type="number" class="lbus_seats_wanted" name="seats_wanted" required><br>
                             <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
-                            <input placeholder="Main Passenger's Age" type="text" class="lbus_age"  name="age" required><br>
+                            <input placeholder="Main Passenger's Age" type="number" class="lbus_age"  name="age" required><br>
                             <input placeholder="Main Passenger's Phone number" type="text" class="lbus_phone_number" name="phone_number" required><br>
 
                             <button onclick="overlaysubmit()" type="submit" class="lbus_proceed_btn">Proceed to pay</button>
