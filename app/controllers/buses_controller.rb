@@ -86,13 +86,13 @@ class BusesController < ApplicationController
       from_location = Place.find_by(place: params[:from_location])
       to_location = Place.find_by(place: params[:to_location])
       bus_shift.update(departure_time: params[:departure_time],
-                        shift: params[:shift],
-                        fare: params[:fare],
-                        arrival_time: params[:arrival_time],
-                        conductor_name: params[:conductor_name],
-                        conductor_phone_number: params[:conductor_phone_number],
-                        from_location_id: from_location.id,
-                        to_location_id: to_location.id)
+                       shift: params[:shift],
+                       fare: params[:fare],
+                       arrival_time: params[:arrival_time],
+                       conductor_name: params[:conductor_name],
+                       conductor_phone_number: params[:conductor_phone_number],
+                       from_location_id: from_location.id,
+                       to_location_id: to_location.id)
 
       if bus_shift.save
         redirect_to '/buses/index'
@@ -108,32 +108,32 @@ class BusesController < ApplicationController
     current_user
     number_of_seats_available = params[:number_of_seats_available]
     puts number_of_seats_available.to_i.is_a? Integer
-     if number_of_seats_available.to_i >= params[:seats_wanted].to_i
-    booking_detail = BookingDetail.new(bus_id: params[:bus_id],bus_shift_id: params[:bus_shift_id],
-    seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
-  phone_number: params[:phone_number])
-  if booking_detail.save
-    @@booking_detail = booking_detail.id
-    @user = User.find(current_user.id)
-    @bus_list = searched_bus_array
-    redirect_to '/buses/payment/pay'
-  else
-    render plain: "Fail"
-  end
-else
-  render plain: "No vacancy"
-end
+    if number_of_seats_available.to_i >= params[:seats_wanted].to_i
+      booking_detail = BookingDetail.new(bus_id: params[:bus_id], bus_shift_id: params[:bus_shift_id],
+                                         seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
+                                         phone_number: params[:phone_number])
+      if booking_detail.save
+        @@booking_detail = booking_detail.id
+        @user = User.find(current_user.id)
+        @bus_list = searched_bus_array
+        redirect_to '/buses/payment/pay'
+      else
+        render plain: 'Fail'
+      end
+    else
+      render plain: 'No vacancy'
+    end
   end
 
   def booking_detail_returner
-    return @@booking_detail
+    @@booking_detail
   end
 
   def success
-    redirect_to "home/home"
+    redirect_to 'home/home'
   end
+
   def pay
     @booking_detail = booking_detail_returner
   end
-
 end

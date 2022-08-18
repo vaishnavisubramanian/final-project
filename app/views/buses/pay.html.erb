@@ -21,14 +21,44 @@
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
             <input name="booking_detail_id" type="hidden" value=<%=@booking_detail_id%>>
-            <input placeholder="Card Number" type="text" class="lbus_card_number" name="card_number"/>
+            <input placeholder="Card Number" type="password" class="lbus_card_number" name="card_number" maxlength="16" minlength="16" required/>
             <br>
-            <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" />
+            <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" minlength="3" maxlength="255" required/>
             <br>
-            <input placeholder="MM" type="text" class="lbus_card_month" name="month" />
+            <%# <input placeholder="MM" type="text" class="lbus_card_month" name="month" maxlength="2" minlength="16" required/> %>
+            <select name="month" id="" required class="lbus_card_month">
+                <option value="">MM</option>
+                <option value="">01</option>
+                <option value="jan">02</option>
+                <option value="Feb">03</option>
+                <option value="Mar">04</option>
+                <option value="Apr">05</option>
+                <option value="May">06</option>
+                <option value="Jun">07</option>
+                <option value="Jul">08</option>
+                <option value="Aug">09</option>
+                <option value="Sep">10</option>
+                <option value="Oct">11</option>
+                <option value="Nov">12</option>
+            </select>
             /
-            <input placeholder="YYYY" type="text" class="lbus_card_year" name="year"/>
-            <input placeholder="CVV" type="text" class="lbus_card_cvv" name="cvv"/>
+            <select name="year" id="" required class="lbus_card_year">
+                <option value="Dec">YYYY</option>
+                <option value="">2023</option>
+                <option value="jan">2024</option>
+                <option value="Feb">2025</option>
+                <option value="Mar">2026</option>
+                <option value="Apr">2027</option>
+                <option value="May">2028</option>
+                <option value="Jun">2029</option>
+                <option value="Jul">2030</option>
+                <option value="Aug">2031</option>
+                <option value="Sep">2032</option>
+                <option value="Oct">2033</option>
+                <option value="Nov">2034</option>
+                <option value="Dec">2035</option>
+            </select>
+            <input placeholder="CVV" type="password" class="lbus_card_cvv" name="cvv" maxlength="3" minlength="3" required/>
             <br>
             <button class="lbus_confirm_btn" type="submit" onclick="paid()" >Confirm</button>
         </form>
