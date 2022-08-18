@@ -1,22 +1,25 @@
- <p class="lbus_pay_text">
-                        PAYMENT DETAILS
-                        </p>
+<div class="pay_whole_div">
+    <p class="lbus_pay_text">
+    PAYMENT DETAILS
+    </p>
 
-                        <p class="lbus_lbus_total_fare">
-                            Amount to be paid is ₹900
-                        </p>
+    <p class="lbus_lbus_total_fare">
+        Amount to be paid is ₹900
+    </p>
 
-                        <form action="/book/payment" method="post">
-                                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                                <% @booking_detail_id = BookingDetail.find(@booking_detail).id%>
-                                <input name="booking_detail_id" type="hidden" value=<%=@booking_detail_id%>>
-                                <input placeholder="Card Number" type="text" class="lbus_card_number" name="card_number"/>
-                                <br>
-                                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" />
-                                <br>
-                                <input placeholder="MM" type="text" class="lbus_card_month" name="month" />
-                                <input placeholder="YYYY" type="text" class="lbus_card_year" name="year"/>
-                                <input placeholder="CVV" type="text" class="lbus_card_cvv" name="cvv"/>
-                                <br>
-                                <button class="lbus_confirm_btn" type="submit">Confirm</button>
-                        </form>
+    <form action="/book/payment" method="post">
+
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <% @booking_detail_id = BookingDetail.find(@booking_detail).id%>
+        <input name="booking_detail_id" type="hidden" value=<%=@booking_detail_id%>>
+        <input placeholder="Card Number" type="text" class="lbus_card_number" name="card_number"/>
+        <br>
+        <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" />
+        <br>
+        <input placeholder="MM" type="text" class="lbus_card_month" name="month" />
+        <input placeholder="YYYY" type="text" class="lbus_card_year" name="year"/>
+        <input placeholder="CVV" type="text" class="lbus_card_cvv" name="cvv"/>
+        <br>
+        <button class="lbus_confirm_btn" type="submit">Confirm</button>
+    </form>
+<div>
