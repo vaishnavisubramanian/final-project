@@ -106,6 +106,9 @@ class BusesController < ApplicationController
 
   def payment
     current_user
+    number_of_seats_available = params[:number_of_seats_available]
+    puts number_of_seats_available.to_i.is_a? Integer
+     if number_of_seats_available.to_i >= params[:seats_wanted].to_i
     booking_detail = BookingDetail.new(bus_id: params[:bus_id],bus_shift_id: params[:bus_shift_id],
     seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
   phone_number: params[:phone_number])
@@ -117,6 +120,9 @@ class BusesController < ApplicationController
   else
     render plain: "Fail"
   end
+else
+  render plain: "No vacancy"
+end
   end
 
   def booking_detail_returner
@@ -124,10 +130,7 @@ class BusesController < ApplicationController
   end
 
   def success
-    puts params[:booking_detail_id]
-    payment_detail = PaymentDetail.new(booking_details_id: params[:booking_detail_id],card_number: params[:card_number], card_holder_name: params[:card_holder_name], month: params[:month], year: params[:year], cvv: params[:cvv])
-    payment_detail.save
-    render plain: "Success"
+    redirect_to "home/home"
   end
   def pay
     @booking_detail = booking_detail_returner

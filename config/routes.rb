@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   post '/book/bus', to: 'buses#payment'
   post '/book/payment', to: 'buses#success'
   get '/buses/payment/pay', to: 'buses#pay'
+  get 'pay/delete', to: 'buses#pay_delete'
 end
