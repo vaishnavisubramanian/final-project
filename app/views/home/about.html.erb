@@ -1,156 +1,165 @@
 <main class="home_body">
-     <nav class="home_navbar">
-        <% if @presence == 0 %>
-   <li>
-    <a href="/signin">
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
-                </button>
-            </a>
-</li>
-         <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links"  id="home_active">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links">Home</a>
-        </li>
+  <nav class="home_navbar">
+    <% if @presence == 0 %>
+      <li>
+        <a href="/signin">
+          <button id="home_profile_icon_2">
+            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+          </button>
+        </a>
+      </li>
+      <li>
+        <a href="/service" class="home_nav_links">Service</a>
+      </li>
+      <li>
+        <a href="/about" class="home_nav_links" id="home_active">About</a>
+      </li>
+      <li>
+        <a href="/home" class="home_nav_links">Home</a>
+      </li>
 
- <% elsif%>
-            <% if @presence == 1%>
-           <% if @user.role == "admin"%>
-                 <div class="home_admin_dropdown" id="home_admin_dropdown">
-                                                <ul>
-                                                    <li class="user_name_drop_button">
-                                                        <%= @user.username %>
-                                                    </li>
-                                                    <li class="user_logout_drop_button">
-                                                        <%= link_to destroy_session_path, method: :delete do %>
-                                                            <button class="home_logout"> <span>Log out</span></button>
-                                                            <% end %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                       <li>
+      <% elsif%>
+      <% if @presence == 1%>
+        <% if @user.role == "admin"%>
+          <div class="home_admin_dropdown" id="home_admin_dropdown">
+            <ul>
+              <li class="user_name_drop_button">
+                <%= @user.username %>
+              </li>
+              <li class="user_logout_drop_button">
+                <%= link_to destroy_session_path, method: :delete do %>
+                  <button class="home_logout">
+                    <span>Log out</span>
+                  </button>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <li>
 
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
-                </button>
+            <button id="home_profile_icon_2">
+              <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+            </button>
 
-            </li>
-                  <li>
+          </li>
+          <li>
             <a href="/buses/index" class="home_nav_links">List all Bus</a>
-        </li>
+          </li>
 
-        <li>
+          <li>
             <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="/about" class="home_nav_links" id="home_active">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links" >Home</a>
-        </li>
-
-
-            <% end %>
-            <% end %>
-
-        <% else %>
-
-           <div class="home_admin_dropdown" id="home_admin_dropdown">
-                                                <ul>
-                                                    <li class="user_name_drop_button">
-                                                        <%= @user.username %>
-                                                    </li>
-                                                    <li class="user_logout_drop_button">
-                                                        <%= link_to destroy_session_path, method: :delete do %>
-                                                            <button class="home_logout"> <span>Log out</span></button>
-                                                            <% end %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
- <li>
-
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
-                </button>
-
-            </li>
-
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links" id="home_active">About</a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="/home" class="home_nav_links">Home</a>
-        </li>
+          </li>
 
 
+        <% end %>
+      <% end %>
 
-         <% end %>
+    <% else %>
+
+      <div class="home_admin_dropdown" id="home_admin_dropdown">
+        <ul>
+          <li class="user_name_drop_button">
+            <%= @user.username %>
+          </li>
+          <li class="user_logout_drop_button">
+            <%= link_to destroy_session_path, method: :delete do %>
+              <button class="home_logout">
+                <span>Log out</span>
+              </button>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <li>
+
+        <button id="home_profile_icon_2">
+          <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+        </button>
+
+      </li>
+
+      <li>
+        <a href="/service" class="home_nav_links">Service</a>
+      </li>
+      <li>
+        <a href="/about" class="home_nav_links" id="home_active">About</a>
+      </li>
+      <li>
+        <a href="/home" class="home_nav_links">Home</a>
+      </li>
 
 
-    </nav>
+    <% end %>
 
-    <div class="about_text_div">
+
+  </nav>
+
+  <div class="about_text_div">
     <p class="about_about_us">About us</p>
-    <p class="about_about_us_text">Pola is one of the world's largest online bus ticketing platform that has transformed bus travel by bringing ease and convenience to millions of people who travel using buses. By providing widest choice, superior customer service, lowest prices and unmatched benefits, Pola has served over 5 lakh customers. <br> <br>Pola, over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts have resulted into Pola becoming one of the leading ticketing platforms in India for various Bus services. We have a strong presence with a ticket inventory from over 250 bus partners and 10000 route options our app and website. Founded in the year 2019, Pola is a pioneer in providing end-to-end software and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking systems, passenger information systems, logistics management backed by a 24x7 customer support center. </p>
+    <p class="about_about_us_text">Pola is one of the world's largest online bus ticketing platform that has transformed bus travel by bringing ease and convenience to millions of people who travel using buses. By providing widest choice, superior customer service, lowest prices and unmatched benefits, Pola has served over 5 lakh customers.
+      <br>
+        <br>Pola, over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts have resulted into Pola becoming one of the leading ticketing platforms in India for various Bus services. We have a strong presence with a ticket inventory from over 250 bus partners and 10000 route options our app and website. Founded in the year 2019, Pola is a pioneer in providing end-to-end software and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking systems, passenger information systems, logistics management backed by a 24x7 customer support center.
+        </p>
 
-    <p class="about_management">Management Team</p>
-    <%= image_tag 'vaish.jpg', alt:'icon', class:'about_picture' %>
+        <p class="about_management">Management Team</p>
+        <%= image_tag 'vaish.jpg', alt:'icon', class:'about_picture' %>
         <div class="about_ceo">
-            <p class="about_ceo_name">Vaishnavi Subramanian, CEO</p>
-            <p class="about_ceo_info">Vaishnavi Subramanian has been Chief Executive Officer of Pola since September 2009. Contributing to the people has been her number one goal in life. That's when she thought of creating Pola. </p>
+          <p class="about_ceo_name">Vaishnavi Subramanian, CEO</p>
+          <p class="about_ceo_info">Vaishnavi Subramanian has been Chief Executive Officer of Pola since September 2009. Contributing to the people has been her number one goal in life. That's when she thought of creating Pola.
+          </p>
         </div>
-<br><br>
+        <br>
+          <br>
 
 
-     <%= image_tag 'meenu.jpeg', alt:'icon', class:'about_picture' %>
-        <div class="about_ceo">
-            <p class="about_ceo_name">Meenu Sowjanya, CTO</p>
-            <p class="about_ceo_info">Meenu Sowjanya has been Chief Technical Officer of Pola. Prior to Pola. She served as one of the best backend developers at Freshworks. She was a former classmate of Vaishnavi at Freshworks.</p>
-        </div>
+            <%= image_tag("meenu.jpeg", alt:'icon', class:'about_picture')%>
+            <div class="about_ceo">
+              <p class="about_ceo_name">Meenu Sowjanya, CTO</p>
+              <p class="about_ceo_info">Meenu Sowjanya has been Chief Technical Officer of Pola. Prior to Pola. She served as one of the best backend developers at Freshworks. She was a former classmate of Vaishnavi at Freshworks.</p>
+            </div>
 
-    <br><br>
+            <br>
+              <br>
 
 
-     <%= image_tag 'image.png', alt:'icon', class:'about_picture' %>
-        <div class="about_ceo">
-            <p class="about_ceo_name">Ismail, Manager</p>
-            <p class="about_ceo_info">Ismail has been the Manager of Pola. Apart from being a manager at Pola, Ismail was once and even now a great designer. He is the main reason to have Pola get started.</p>
-        </div>
-    </div>
- </div>
-</main>
-<footer class="about_footer">
-<p class="home_footer_text">POLA</p>
+                <%= image_tag 'image.png', alt:'icon', class:'about_picture' %>
+                <div class="about_ceo">
+                  <p class="about_ceo_name">Ismail, Manager</p>
+                  <p class="about_ceo_info">Ismail has been the Manager of Pola. Apart from being a manager at Pola, Ismail was once and even now a great designer. He is the main reason to have Pola get started.</p>
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer class="about_footer">
+            <p class="home_footer_text">POLA</p>
             <img src="<%=asset_path 'insta.png' %>" class="home_icon_insta">
-            <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats">
-            <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail">
+              <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats">
+                <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail">
 
-<div class="home_copyrights">
-©2022 polagroup All rights reserved
+                  <div class="home_copyrights">
+                    ©2022 polagroup All rights reserved
 
-</div>
+                  </div>
 
-</footer>
- <script>
-        function dropdown() {
-            document.getElementById("home_admin_dropdown").style.display = "block";
-        }
+                </footer>
+                <script>
+                  function dropdown() {
+                    document.getElementById("home_admin_dropdown").style.display = "block";
+                  }
 
-        window.onclick = function(e) {
-            if (!e.target.matches('.home_pola_profile_2')) {
-                var myDropdown = document.getElementById("home_admin_dropdown");
-                if (myDropdown.style.display = "block") {
-                    myDropdown.style.display = "none";
-                }
-            }
-        }
-    </script>
+                  window.onclick = function (e) {
+                    if (! e.target.matches('.home_pola_profile_2')) {
+                      var myDropdown = document.getElementById("home_admin_dropdown");
+                      if (myDropdown.style.display = "block") {
+                        myDropdown.style.display = "none";
+                      }
+                    }
+                  }
+                </script>
