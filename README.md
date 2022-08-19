@@ -20,13 +20,14 @@ Whenever I was travelling before, I felt uncomfortable with my seat and it was a
 7. Search bus - completed
 8. List bus (Users View) - completed
 9. Book Ticket - completed
+
 ## Gems used
   * gem 'email_validator'
   * gem 'rubocop'
   * gem 'fontawesome-sass'
   * gem 'dotenv'
   * gem 'bcrypt'
+  
 ## EER Diagram
 ![image](https://user-images.githubusercontent.com/93571050/185542076-e12ee42e-416c-4d3a-afec-1fde19d1ccdb.png)
 
- 
