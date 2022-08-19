@@ -27,3 +27,5 @@ Whenever I was travelling before, I felt uncomfortable with my seat and it was a
   * gem 'dotenv'
   * gem 'bcrypt'
 ## EER Diagram
+
+ ![eer image](/home/vaishnavisubramanian/Pola eer.png)
