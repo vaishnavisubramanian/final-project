@@ -6,7 +6,7 @@ one:
   month: 1
   year: 1
   cvv: 1
-  booking_detail: one
+  booking_details: one
 
 two:
   card_number: 1
@@ -14,4 +14,4 @@ two:
   month: 1
   year: 1
   cvv: 1
-  booking_detail: two
+  booking_details: two

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/home', to: 'home#home'
   get '/service', to: 'home#service'
-  get '/bookings', to: 'home#bookings'
+  post '/bookings', to: 'buses#success'
+  get '/user_bookings/:user_id', to: 'bookings#index'
   get '/addbus', to: 'buses#new'
   post '/search_bus', to: 'home#search'
   get '/buses/search/list', to: 'buses#list_bus', as: :bus_list
@@ -31,4 +32,6 @@ Rails.application.routes.draw do
   post '/book/payment', to: 'buses#success'
   get '/buses/payment/pay', to: 'buses#pay'
   get 'pay/delete', to: 'buses#pay_delete'
+  get '/bus/book_tickets/:bus_id', to: 'buses#book_tickets'
+  delete '/bookings/:booking_id', to: 'bookings#destroy'
 end

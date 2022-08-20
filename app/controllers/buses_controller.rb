@@ -3,6 +3,8 @@
 class BusesController < ApplicationController
   skip_before_action :ensure_user_logged_in
   @@booking_detail = nil
+  @@booking_detail_details = nil
+  @@booking_user = nil
   def new
     render 'new'
   end
@@ -60,6 +62,7 @@ class BusesController < ApplicationController
     if current_user
       @presence = 1
       @user = User.find(current_user.id)
+      @count = 0
       puts '!@#!@!#!#!@@#!##!{}{}{}{}{}{}{}{}}{}{}{}{}{}{}{}{}{]}[]'
       puts @presence
     else
@@ -67,6 +70,33 @@ class BusesController < ApplicationController
     end
 
     @bus_list = searched_bus_array
+  end
+
+  def book_tickets
+    @@booking_user = params[:booking_user]
+    puts "|||||||||||||||||||||||||||||||||||"
+    puts params[:booking_user]
+    @bus_main = Bus.find(params[:bus_id])
+    @bus_shift = BusShift.find_by(bus_id: @bus_main.id)
+    @booking_detail = booking_detail_returner
+    puts @booking_detail
+    puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    if @booking_detail != nil
+    @booking_details = BookingDetail.find(@booking_detail)
+    if BookingDetail.where(bus_id: @booking_details.bus_id).length == 1
+    @bus = Bus.find(@booking_details.bus_id).number_of_seats - @booking_details.seats_wanted
+    else
+      puts "Hello"
+    @bus = Bus.find(@booking_details.bus_id).number_of_seats - @booking_details.seats_wanted - BookingDetail.where(bus_id: @booking_details.bus_id).length
+    end
+    puts @bus
+  else
+    @bus = Bus.find(params[:bus_id]).number_of_seats
+  end
+  end
+
+  def booking_user_returner
+    return @@booking_user
   end
 
   def edit_bus
@@ -106,14 +136,18 @@ class BusesController < ApplicationController
 
   def payment
     current_user
+    @booking_user = booking_user_returner
     number_of_seats_available = params[:number_of_seats_available]
     puts number_of_seats_available.to_i.is_a? Integer
     if number_of_seats_available.to_i >= params[:seats_wanted].to_i
       booking_detail = BookingDetail.new(bus_id: params[:bus_id], bus_shift_id: params[:bus_shift_id],
                                          seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
-                                         phone_number: params[:phone_number])
+                                         phone_number: params[:phone_number],user_id: @booking_user)
       if booking_detail.save
-        @@booking_detail = booking_detail.id
+        @booking_detail = booking_detail.id
+        puts "ttttttttttttt"
+        puts @booking_detail
+        @@booking_detail = @booking_detail
         @user = User.find(current_user.id)
         @bus_list = searched_bus_array
         redirect_to '/buses/payment/pay'
@@ -126,14 +160,40 @@ class BusesController < ApplicationController
   end
 
   def booking_detail_returner
-    @@booking_detail
+    return @@booking_detail
+  end
+
+  def booking_detail_details_returner
+    return @@booking_detail_details
   end
 
   def success
-    redirect_to 'home/home'
+    @presence = 0
+    if current_user
+      @presence = 1
+      @user = User.find(current_user.id)
+      @booking_detail = booking_detail_returner
+      @payment = PaymentDetail.new(card_number: params[:card_number], card_holder_name: params[:card_holder_name], month: params[:month], year: params[:year], cvv: params[:cvv], booking_detail_id: params[:booking_detail_id])
+      if @payment.save
+        redirect_to "/user_bookings/#{current_user.id}"
+      else
+        render plain: "Failed"
+      end
+    end
   end
 
   def pay
     @booking_detail = booking_detail_returner
+    puts @booking_detail
+    puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    @booking_details = BookingDetail.find(@booking_detail)
+    if BookingDetail.where(bus_id: @booking_details.bus_id).length == 1
+    @bus = Bus.find(@booking_details.bus_id).number_of_seats - @booking_details.seats_wanted
+    else
+      puts "Hello"
+    @bus = Bus.find(@booking_details.bus_id).number_of_seats - @booking_details.seats_wanted - BookingDetail.where(bus_id: @booking_details.bus_id).length
+    end
+    puts @bus
   end
+
 end

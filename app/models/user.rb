@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   has_secure_password
-
+  has_many :booking_details
   VALID_EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\z/.freeze
   validates :username, presence: true, length: { minimum: 3, maximum: 100 },
                        format: { with: /\A[^0-9`!@#$%\^&*+_=]+\z/ }

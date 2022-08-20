@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreatePaymentDetails < ActiveRecord::Migration[6.1]
   def change
     create_table :payment_details do |t|
@@ -8,7 +6,7 @@ class CreatePaymentDetails < ActiveRecord::Migration[6.1]
       t.integer :month
       t.integer :year
       t.integer :cvv
-      t.references :booking_details, null: false, foreign_key: true
+      t.references :booking_detail, null: false, foreign_key: true
 
       t.timestamps
     end

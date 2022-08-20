@@ -1,8 +1,8 @@
-<main class="home_body">
-     <nav class="home_navbar">
+    <nav class="home_navbar">
+
         <% if @presence == 0 %>
-    <li>
-    <a href="/signin">
+
+    <li><a href="/signin">
                 <button id="home_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
                 </button>
@@ -15,10 +15,10 @@
             <a href="/about" class="home_nav_links">About</a>
         </li>
         <li>
-            <a href="/home" class="home_nav_links">Home</a>
+            <a href="/home" class="home_nav_links" >Home</a>
         </li>
 
- <% elsif%>
+<% elsif%>
             <% if @presence == 1%>
            <% if @user.role == "admin"%>
                  <div class="home_admin_dropdown" id="home_admin_dropdown">
@@ -44,7 +44,9 @@
                   <li>
             <a href="/buses/index" class="home_nav_links">List all Bus</a>
         </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links"  id="home_active">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="home_nav_links">Service</a>
         </li>
@@ -52,12 +54,13 @@
             <a href="/about" class="home_nav_links">About</a>
         </li>
         <li>
-            <a href="/home" class="home_nav_links" >Home</a>
+            <a href="/home" class="home_nav_links">Home</a>
         </li>
 
 
             <% end %>
             <% end %>
+
 
         <% else %>
           <div class="home_admin_dropdown" id="home_admin_dropdown">
@@ -73,14 +76,16 @@
                                                 </ul>
                                             </div>
 
- <li>
+            <li>
 
                 <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2',onclick:'dropdown()' %>
+                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
                 </button>
 
             </li>
-         
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links"  id="home_active">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="home_nav_links">Service</a>
         </li>
@@ -94,8 +99,136 @@
 
 
          <% end %>
+
+
     </nav>
-     <script>
+
+
+
+
+
+
+
+
+
+
+
+     <div class="list_bus_div">
+        <% @bookings.each do |booking| %>
+      <div class="list_bus_single">
+
+          <% @bus=Bus.find(booking.bus_id)%>
+          <% @bus_shift = BusShift.find(booking.bus_shift_id)%>
+          <% @from_location = Place.find(@bus_shift.from_location_id).place%>
+          <% @to_location = Place.find(@bus_shift.to_location_id).place%>
+
+        <p class="list_bus_name">
+            <%= @bus.travel_name %>
+        </p>
+
+        <div class="list_bus_type_div">
+          <p class="list_bus_type">
+            <% if @bus.bus_type == true%>
+              AC
+            <% else %>
+              Non-AC
+            <% end %>
+          </p>
+
+          <p class="list_bus_hifn1">-</p>
+
+          <p class="list_bus_seat_type">
+            <% if @bus.seat_type == true%>
+              Sleeper
+            <% else %>
+              Seater
+            <% end %>
+          </p>
+
+          <p class="list_bus_hifn2">-</p>
+
+          <p class="list_bus_seats">
+              <%= @bus.number_of_seats %>
+              Seats
+          </p>
+        </div>
+
+        <div class="list_bus_review">
+            5
+            <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="list_bus_left">
+          <p class="list_bus_dept_text">
+            Departure
+          </p>
+
+          <p class="list_bus_depature_time">
+              <%= @bus_shift.departure_time.strftime("%I:%M %p") %>
+          </p>
+
+          <p class="list_bus_from_place">
+              <%= @from_location %>
+          </p>
+        </div>
+
+        <p class="list_bus_line1"></p>
+
+        <div class="list_bus_right">
+          <p class="list_bus_arr_text">
+            Arrival
+          </p>
+
+          <p class="list_bus_arrival_time">
+              <%= @bus_shift.arrival_time.strftime("%I:%M %p") %>
+          </p>
+
+          <p class="list_bus_to_place">
+              <%= @to_location %>
+          </p>
+        </div>
+
+        <p class="list_bus_fare">
+          INR
+          <%= @bus_shift.fare %>
+        </p>
+        </div>
+
+        <%= booking.main_passenger_name %>
+
+        <a href="/bookings/<%= booking.id %>" data-method="delete" class="list_bus_delete_bus">Cancel bookings</a>
+
+        <% end%>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+<script>
         function dropdown() {
             document.getElementById("home_admin_dropdown").style.display = "block";
         }
@@ -108,5 +241,4 @@
                 }
             }
         }
-    </script>
-</main>
+</script>
