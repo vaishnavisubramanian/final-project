@@ -115,7 +115,7 @@
 
      <div class="list_bus_div">
         <% @bookings.each do |booking| %>
-      <div class="list_bus_single">
+      <div class="book_tickets_single">
 
           <% @bus=Bus.find(booking.bus_id)%>
           <% @bus_shift = BusShift.find(booking.bus_shift_id)%>
@@ -188,15 +188,29 @@
           </p>
         </div>
 
-        <p class="list_bus_fare">
+        <br>
+
+        <p class="book_tickets_passenger_name">
+            Passenger name : <%= booking.main_passenger_name %>
+
+        </p>
+
+         <p class="book_tickets_passenger_name">
+            Seat number : <%= booking.main_passenger_name %>
+        </p>
+
+         <p class="book_tickets_passenger_name">
+            Date of journey : <%= booking.main_passenger_name %>
+        </p>
+        
+        <p class="book_tickets_fare">
           INR
           <%= @bus_shift.fare %>
         </p>
+
+        <a href="/bookings/<%= booking.id %>" data-method="delete" class="book_tickets_cancel_ticket">Cancel bookings</a>
+
         </div>
-
-        <%= booking.main_passenger_name %>
-
-        <a href="/bookings/<%= booking.id %>" data-method="delete" class="list_bus_delete_bus">Cancel bookings</a>
 
         <% end%>
       </div>
