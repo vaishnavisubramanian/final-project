@@ -145,7 +145,7 @@
 
         <div class="list_bus_review">
           5
-          <i class="fa-solid fa-star"></i>
+          <em class="fa-solid fa-star"></em>
         </div>
 
         <div class="list_bus_left">
@@ -185,7 +185,7 @@
 
         <% if @presence == 1 %>
           <form action="/bus/book_tickets/<%=@bus_main.id%>" method="get">
-          <input type="hidden" name="booking_user" value=<%= @user.id %>>
+          <emnput type="hidden" name="booking_user" value=<%= @user.id %>>
           <button class="lbus_bkticket" type="submit">
             Book Tickets
           </button>
