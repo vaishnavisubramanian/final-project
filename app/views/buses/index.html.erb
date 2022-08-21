@@ -46,7 +46,9 @@
                   <li>
             <a href="/buses/index" class="list_bus_nav_links" id="list_bus_active">List all Bus</a>
         </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="list_bus_nav_links" >Service</a>
         </li>
@@ -83,7 +85,9 @@
                 </button>
 
             </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="list_bus_nav_links">Service</a>
         </li>
@@ -100,7 +104,7 @@
 <%= link_to "/buses/new",method: :get do%>
 <button class="list_bus_add_bus_btn">
 
-  <i class="fa-solid fa-plus"></i> Add Bus
+  <em class="fa-solid fa-plus"></em> Add Bus
 </button>
 <% end %>
 
@@ -143,7 +147,7 @@
     </div>
 
     <div class="list_bus_review">
-        5 <i class="fa-solid fa-star"></i>
+        5 <em class="fa-solid fa-star"></em>
     </div>
 
      <% @bus_shift = BusShift.find_by(bus_id: bus.id)%>
@@ -183,19 +187,20 @@
 
     <%= link_to "/buses/#{bus.id}", method: :delete,class: "list_bus_delete_link",:data => {:confirm => 'Are you sure? Do you want to delete this bus?'} do %>
       <p class="list_bus_delete_bus">
-         <i class="fa-solid fa-trash"></i>
+         <em> class="fa-solid fa-trash"><em>
       </p>
     <% end %>
 
     <a href="/buses/edit/<%=bus.id%>" data-method="get" class="list_bus_edit_link">
       <p class="list_bus_edit_bus">
-      <i class="fa-solid fa-pencil"></i>
+      <em> class="fa-solid fa-pencil"><em>
       </p>
     </a>
 
     <p class="list_bus_fare">
       INR <%= @bus_shift.fare %>
     </p>
+
 
 </div>
 <% end %>

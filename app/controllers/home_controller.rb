@@ -41,6 +41,7 @@ class HomeController < ApplicationController
 
   def bookings
     @presence = 0
+    @bus 
     if current_user
       @presence = 1
       @user = User.find(current_user.id)

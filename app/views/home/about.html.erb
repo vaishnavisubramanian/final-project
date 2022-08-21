@@ -45,7 +45,12 @@
           <li>
             <a href="/buses/index" class="home_nav_links">List all Bus</a>
           </li>
-
+          <li>
+            <a href="/bookings" class="home_nav_links">My bookings</a>
+        </li>
+            <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+            </li>
           <li>
             <a href="/service" class="home_nav_links">Service</a>
           </li>
@@ -84,7 +89,9 @@
         </button>
 
       </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
       <li>
         <a href="/service" class="home_nav_links">Service</a>
       </li>
@@ -127,7 +134,6 @@
 
             <br>
               <br>
-
 
                 <%= image_tag 'image.png', alt:'icon', class:'about_picture' %>
                 <div class="about_ceo">

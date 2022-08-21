@@ -1,311 +1,252 @@
+<nav class="home_navbar">
+  <% if @presence == 0 %>
+    <li>
+      <a href="/signin">
+        <button id="home_profile_icon_2">
+          <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a href="/service" class="home_nav_links">Service</a>
+    </li>
+    <li>
+      <a href="/about" class="home_nav_links">About</a>
+    </li>
+    <li>
+      <a href="/home" class="home_nav_links">Home</a>
+    </li>
 
-     <nav class="home_navbar">
-        <% if @presence == 0 %>
-   <li>
-    <a href="/signin">
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2' %>
-                </button>
-            </a>
-</li>
-         <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links" >About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links">Home</a>
-        </li>
-
-
- <% elsif%>
-            <% if @presence == 1%>
-           <% if @user.role == "admin"%>
-                 <div class="home_admin_dropdown" id="home_admin_dropdown">
-                                                <ul>
-                                                    <li class="user_name_drop_button">
-                                                        <%= @user.username %>
-                                                    </li>
-                                                    <li class="user_logout_drop_button">
-                                                        <%= link_to destroy_session_path, method: :delete do %>
-                                                            <button class="home_logout"> <span>Log out</span></button>
-                                                            <% end %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                       <li>
-
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
-                </button>
-
+    <% elsif%>
+    <% if @presence == 1%>
+      <% if @user.role == "admin"%>
+        <div class="home_admin_dropdown" id="home_admin_dropdown">
+          <ul>
+            <li class="user_name_drop_button">
+              <%= @user.username %>
             </li>
-                  <li>
-            <a href="/buses/index" class="home_nav_links">List all Bus</a>
-        </li>
-
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links" >Home</a>
-        </li>
-
-
-            <% end %>
-            <% end %>
-
-        <% else %>
-
-           <div class="home_admin_dropdown" id="home_admin_dropdown">
-                                                <ul>
-                                                    <li class="user_name_drop_button">
-                                                        <%= @user.username %>
-                                                    </li>
-                                                    <li class="user_logout_drop_button">
-                                                        <%= link_to destroy_session_path, method: :delete do %>
-                                                            <button class="home_logout"> <span>Log out</span></button>
-                                                            <% end %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
- <li>
-
-                <button id="home_profile_icon_2">
-                    <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+            <li class="user_logout_drop_button">
+              <%= link_to destroy_session_path, method: :delete do %>
+                <button class="home_logout">
+                  <span>Log out</span>
                 </button>
-
+              <% end %>
             </li>
+          </ul>
+        </div>
+        <li>
 
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
+          <button id="home_profile_icon_2">
+            <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+          </button>
+
         </li>
         <li>
-            <a href="/about" class="home_nav_links">About</a>
+          <a href="/buses/index" class="home_nav_links">List all Bus</a>
         </li>
         <li>
-            <a href="/home" class="home_nav_links">Home</a>
+          <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
+        <li>
+          <a href="/service" class="home_nav_links">Service</a>
+        </li>
+        <li>
+          <a href="/about" class="home_nav_links">About</a>
+        </li>
+        <li>
+          <a href="/home" class="home_nav_links">Home</a>
         </li>
 
-         <% end %>
-    </nav>
+      <% end %>
+    <% end %>
+
+  <% else %>
+
+    <div class="home_admin_dropdown" id="home_admin_dropdown">
+      <ul>
+        <li class="user_name_drop_button">
+          <%= @user.username %>
+        </li>
+        <li class="user_logout_drop_button">
+          <%= link_to destroy_session_path, method: :delete do %>
+            <button class="home_logout">
+              <span>Log out</span>
+            </button>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <li>
+
+      <button id="home_profile_icon_2">
+        <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
+      </button>
+
+    </li>
+    <li>
+      <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+    </li>
+
+    <li>
+      <a href="/service" class="home_nav_links">Service</a>
+    </li>
+    <li>
+      <a href="/about" class="home_nav_links">About</a>
+    </li>
+    <li>
+      <a href="/home" class="home_nav_links">Home</a>
+    </li>
+
+  <% end %>
+</nav>
 
 
 <% if @bus_list.length != 0 %>
 
 
-
-<div class="list_bus_div">
-<% @bus_list.each do |bus| %>
-    <div class="list_bus_single">
+  <div class="list_bus_div">
+    <% @bus_list.each do |bus| %>
+      <div class="list_bus_single">
 
         <% @bus_shift = BusShift.find(bus) %>
         <% @bus_main = Bus.find(@bus_shift.id) %>
 
         <p class="list_bus_name">
-            <%= @bus_main.travel_name %>
+          <%= @bus_main.travel_name %>
         </p>
 
         <div class="list_bus_type_div">
-            <p class="list_bus_type">
-                <% if @bus_main.bus_type == true%>
-                AC
-                <% else %>
-                Non-AC
-                <% end %>
-            </p>
+          <p class="list_bus_type">
+            <% if @bus_main.bus_type == true%>
+              AC
+            <% else %>
+              Non-AC
+            <% end %>
+          </p>
 
-            <p class="list_bus_hifn1">-</p>
+          <p class="list_bus_hifn1">-</p>
 
-            <p class="list_bus_seat_type">
-                <% if @bus_main.seat_type == true%>
-                Sleeper
-                <% else %>
-                Seater
-                <% end %>
-            </p>
+          <p class="list_bus_seat_type">
+            <% if @bus_main.seat_type == true%>
+              Sleeper
+            <% else %>
+              Seater
+            <% end %>
+          </p>
 
-            <p class="list_bus_hifn2">-</p>
+          <p class="list_bus_hifn2">-</p>
 
-            <p class="list_bus_seats">
-                <%= @bus_main.number_of_seats %> Seats
-            </p>
+          <p class="list_bus_seats">
+            <%= @bus_main.number_of_seats %>
+            Seats
+          </p>
         </div>
 
         <div class="list_bus_review">
-            5 <i class="fa-solid fa-star"></i>
+          5
+          <em class="fa-solid fa-star"></em>
         </div>
 
-         <div class="list_bus_left">
-            <p class="list_bus_dept_text">
-                Departure
-            </p>
+        <div class="list_bus_left">
+          <p class="list_bus_dept_text">
+            Departure
+          </p>
 
-            <p class="list_bus_depature_time">
-                <%= @bus_shift.departure_time.strftime("%I:%M %p")%>
-            </p>
+          <p class="list_bus_depature_time">
+            <%= @bus_shift.departure_time.strftime("%I:%M %p")%>
+          </p>
 
-            <p class="list_bus_from_place">
-                <%= Place.find(@bus_shift.from_location_id).place %>
-            </p>
+          <p class="list_bus_from_place">
+            <%= Place.find(@bus_shift.from_location_id).place %>
+          </p>
         </div>
 
         <p class="list_bus_line1"></p>
 
         <div class="list_bus_right">
-            <p class="list_bus_arr_text">
-                Arrival
-            </p>
+          <p class="list_bus_arr_text">
+            Arrival
+          </p>
 
-            <p class="list_bus_arrival_time">
-                <%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
-            </p>
+          <p class="list_bus_arrival_time">
+            <%= @bus_shift.arrival_time.strftime("%I:%M %p")%>
+          </p>
 
-            <p class="list_bus_to_place">
-                <%= Place.find(@bus_shift.to_location_id).place %>
-            </p>
+          <p class="list_bus_to_place">
+            <%= Place.find(@bus_shift.to_location_id).place %>
+          </p>
         </div>
 
         <p class="lbus_fare">
-            INR <%= @bus_shift.fare %>
+          INR
+          <%= @bus_shift.fare %>
         </p>
 
         <% if @presence == 1 %>
-            <button class="lbus_bkticket" onclick="bookticket()">
-                Book Tickets
-            </button>
-
-            <div class="main-popup" id="popup">
-                <div class="popup">
-                    <div class="overlay" id="overlay">
-
-                        <div class="overlay_button_div">
-
-                            <% @count = 0 %>
-                            <%BookingDetail.where(bus_id: @bus_main.id).each do|detail|%>
-                                  <%@count += detail.seats_wanted%>
-                            <%end%>
-
-                                <% if @bus_main.number_of_seats - @count > 0%>
-                               <p class="lbus_seats_avail" id="lbus_seats_avail">
-                                Number of seats available - <%= @bus_main.number_of_seats - @count%>
-                                <span class="lbus_close1" onclick="cross()">&times;</span>
-
-                            </p><br>
-                             <form action="/book/bus" method="post">
-                            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                            <input type="hidden" value = <%= @bus_main.number_of_seats - @count%> name="number_of_seats_available">
-                            <input type="hidden" name="bus_id" value=<%= @bus_main.id %>>
-                            <input type="hidden" name="bus_shift_id" value=<%= @bus_shift.id %>>
-                            <input placeholder="Seats you want to book" type="number" class="lbus_seats_wanted" name="seats_wanted" required><br>
-                            <input placeholder="Main Passenger's Name" type="text" class="lbus_passenger_name"  name="main_passenger_name" required><br>
-                            <input placeholder="Main Passenger's Age" type="number" class="lbus_age"  name="age" required><br>
-                            <input placeholder="Main Passenger's Phone number" type="text" class="lbus_phone_number" name="phone_number" required><br>
-
-                            <button onclick="overlaysubmit()" type="submit" class="lbus_proceed_btn">Proceed to pay</button>
-                        </form>
-                        <% else%>
-                        <span class="lbus_close3" onclick="cross()">&times;</span>
-                           <p class="lbus_none">No seats available</p>
-                        <% end %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main-popup2" id="popup2">
-            <% if @booking_detail != nil%>
-                <div class="popup2">
-                    <div class="overlay2" id="overlay2">
-                        <%# <span class="lbus_close" onclick="crossign()">&times;</span> %>
-                        <p class="lbus_pay_text">
-                        PAYMENT DETAILS
-                        </p>
-
-                        <p class="lbus_lbus_total_fare">
-                            Amount to be paid is ₹900
-                        </p>
-
-                        <form action="/book/payment" method="post">
-                                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                                <% @booking_detail_id = BookingDetail.find(@booking_detail).id%>
-                                <input name="booking_detail_id" type="hidden" value=<%=@booking_detail_id%>>
-                                <input placeholder="Card Number" type="text" class="lbus_card_number" name="card_number"/>
-                                <br>
-                                <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" />
-                                <br>
-                                <input placeholder="MM" type="text" class="lbus_card_month" name="month" />
-                                <input placeholder="YYYY" type="text" class="lbus_card_year" name="year"/>
-                                <input placeholder="CVV" type="text" class="lbus_card_cvv" name="cvv"/>
-                                <br>
-                                <button class="lbus_confirm_btn" type="submit">Confirm</button>
-                        </form>
-                    </div>
-                </div>
-            <% end %>
-            </div>
-
-        <%else%>
-                <button class="lbus_bkticket" onclick="window.location.href='/signin'">
-                Book Tickets
-            </button>
-        <% end%>
+          <form action="/bus/book_tickets/<%=@bus_main.id%>" method="get">
+          <emnput type="hidden" name="booking_user" value=<%= @user.id %>>
+          <button class="lbus_bkticket" type="submit">
+            Book Tickets
+          </button>
+          </form>
+          <%else%>
+          <button class="lbus_bkticket" onclick="window.location.href='/signin'">
+            Book Tickets
+          </button>
+          <% end%>
 
         </div>
 
         <% end%>
-        </div>
+      </div>
 
-        <% else %>
+    <% else %>
 
-                 <%= image_tag 'nothing.jpeg', alt:'icon',  class: 'lbus_nothing_illus' %>
-                 <p class="lbus_nobus_text">Oops! No buses available</p>
+      <%= image_tag 'nothing.jpeg', alt:'icon',  class: 'lbus_nothing_illus' %>
+      <p class="lbus_nobus_text">Oops! No buses available</p>
 
-        <% end %>
+    <% end %>
 
 
-<script>
-    function bookticket() {
+    <script>
+      function bookticket() {
         document.getElementById("popup").classList.toggle("active");
-    }
+      }
 
-    function cross() {
+      function cross() {
         var crosscut = document.getElementById("popup");
         if (crosscut.classList.contains('active')) {
-            crosscut.classList.remove('active');
+          crosscut.classList.remove('active');
         }
-    }
+      }
 
-    function overlaysubmit() {
+      function overlaysubmit() {
         document.getElementById("popup2").classList.toggle("show");
         var crosscut = document.getElementById("popup");
         if (crosscut.classList.contains('active')) {
-            crosscut.classList.remove('active');
+          crosscut.classList.remove('active');
         }
-    }
+      }
 
-    function crossign() {
+      function crossign() {
         var crosscut = document.getElementById("popup2");
         if (crosscut.classList.contains('show')) {
-            crosscut.classList.remove('show');
+          crosscut.classList.remove('show');
         }
-    }
-</script>
+      }
+    </script>
     <script>
-        function dropdown() {
-            document.getElementById("home_admin_dropdown").style.display = "block";
-        }
+      function dropdown() {
+        document.getElementById("home_admin_dropdown").style.display = "block";
+      }
 
-        window.onclick = function(e) {
-            if (!e.target.matches('.home_pola_profile_2')) {
-                var myDropdown = document.getElementById("home_admin_dropdown");
-                if (myDropdown.style.display = "block") {
-                    myDropdown.style.display = "none";
-                }
-            }
+      window.onclick = function (e) {
+        if (! e.target.matches('.home_pola_profile_2')) {
+          var myDropdown = document.getElementById("home_admin_dropdown");
+          if (myDropdown.style.display = "block") {
+            myDropdown.style.display = "none";
+          }
         }
+      }
     </script>

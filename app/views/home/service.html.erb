@@ -45,7 +45,9 @@
                   <li>
             <a href="/buses/index" class="home_nav_links">List all Bus</a>
         </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="home_nav_links"  id="home_active">Service</a>
         </li>
@@ -75,14 +77,16 @@
                                                 </ul>
                                             </div>
 
- <li>
+            <li>
 
                 <button id="home_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
                 </button>
 
             </li>
-
+        <li>
+            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
+        </li>
         <li>
             <a href="/service" class="home_nav_links" id="home_active">Service</a>
         </li>
@@ -199,6 +203,7 @@
         </div>
     </div>
 </main>
+
 <script>
         function dropdown() {
             document.getElementById("home_admin_dropdown").style.display = "block";
