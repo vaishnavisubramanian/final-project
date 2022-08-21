@@ -1,6 +1,5 @@
 .service_body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    /* background-image: linear-gradient(to left bottom, #4c0680, #530d87, #59138e, #601995, #671e9c); */
 }
 
 .service_first_div {
@@ -23,7 +22,6 @@
     width: 200px;
     height: 160px;
     text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 100px;
 }
@@ -43,34 +41,24 @@
     width: 200px;
     height: 160px;
     text-align: center;
-    /* border: 2px solid white; */
     margin-left: 540px;
-    /* position: absolute; */
 }
 
 .service_icon2 {
     width: 100px;
     height: 100px;
-    /* margin-left: 620px;
-    margin-top: -170px;
-    position: absolute; */
 }
 
 .service_icon2_text {
-    /* margin-left: 578px; */
     color: white;
     font-size: 130%;
     font-weight: bold;
-    /* width: 200px;
-    margin-top: -49px;
-    position: absolute; */
 }
 
 #service_icon_div3 {
     width: 200px;
     height: 160px;
     text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 100px;
     margin-top: 70px;
@@ -79,23 +67,18 @@
 .service_icon3 {
     width: 100px;
     height: 100px;
-    /* margin-left: 140px;
-    margin-top: 48px; */
 }
 
 .service_icon3_text {
-    /* margin-left: 119px; */
     color: white;
     font-size: 130%;
     font-weight: bold;
-    /* width: 160px; */
 }
 
 #service_icon_div4 {
     width: 200px;
     height: 160px;
     text-align: center;
-    /* border: 2px solid white; */
     margin-left: 540px;
     margin-top: 70px;
 }
@@ -103,25 +86,17 @@
 .service_icon4 {
     width: 90px;
     height: 90px;
-    /* margin-left: 620px;
-    margin-top: -165px;
-    position: absolute; */
 }
 
 .service_icon4_text {
-    /* margin-left: 615px; */
     color: white;
     font-size: 130%;
     font-weight: bold;
-    /* width: 110px;
-    margin-top: -50px;
-    position: absolute; */
 }
 
 .service_bus_img {
     width: 900px;
     height: 510px;
-    /* position: absolute; */
     margin-top: -450px;
     margin-left: 949px;
     position: static;
@@ -151,7 +126,6 @@
     padding-bottom: 100px;
     padding-top: 50px;
     margin-left: 100px;
-    /* border: #37075D 2px solid; */
 }
 
 .service_cs_container1 {
@@ -458,10 +432,6 @@
 }
 
 #service_number_div1 {
-    /* width: 100px; */
-    /* height: 160px; */
-    text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 100px;
     margin-top: 10px;
@@ -486,11 +456,9 @@
 
 #service_number_div2 {
     text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 570px;
     margin-top: 10px;
-    text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -510,8 +478,6 @@
 }
 
 #service_number_div3 {
-    text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 1050px;
     margin-top: 10px;
@@ -535,8 +501,6 @@
 }
 
 #service_number_div4 {
-    text-align: center;
-    /* border: 2px solid white; */
     position: absolute;
     margin-left: 1530px;
     margin-top: 10px;

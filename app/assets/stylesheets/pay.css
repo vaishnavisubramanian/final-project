@@ -14,7 +14,6 @@
     background-color: #F1E1D5;
     width: 680px;
     height: 550px;
-    background: #F1E1D5;
     z-index: 2;
     border-radius: 10px;
     margin-left: 560px;
@@ -45,7 +44,6 @@
     margin-left: 60px;
     font-size: 130%;
     padding-top: 130px;
-    margin-left: 60px;
 }
 
 .lbus_card_number {
@@ -58,7 +56,6 @@
     font-weight: 500;
     padding-right: 25px;
     padding-left: 28px;
-    font-weight: 500;
     border-radius: 10px;
     border: none;
     margin-left: 60px;
@@ -74,7 +71,6 @@
     font-weight: 500;
     padding-right: 25px;
     padding-left: 28px;
-    font-weight: 500;
     border-radius: 10px;
     border: none;
     margin-left: 60px;
