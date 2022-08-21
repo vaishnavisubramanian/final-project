@@ -1,5 +1,5 @@
 <main class="home_body">
-  <ul class="home_navbar">
+  <nav class="home_navbar">
     <% if @presence == 0 %>
       <li>
         <a href="/signin">
@@ -106,7 +106,7 @@
     <% end %>
 
 
-  </ul>
+  </nav>
 
   <div class="about_text_div">
     <p class="about_about_us">About us</p>
@@ -145,9 +145,9 @@
           </main>
           <footer class="about_footer">
             <p class="home_footer_text">POLA</p>
-            <img src="<%=asset_path 'insta.png' %>" class="home_icon_insta">
-              <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats">
-                <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail">
+            <img src="<%=asset_path 'insta.png' %>" class="home_icon_insta" alt="icon">
+              <img src="<%=asset_path 'whats.png' %>" class="home_icon_whats" alt="icon">
+                <img src="<%=asset_path 'mail.png' %>" class="home_icon_mail" alt="icon" >
 
                   <div class="home_copyrights">
                     ©2022 polagroup All rights reserved
