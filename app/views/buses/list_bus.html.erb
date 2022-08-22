@@ -185,7 +185,7 @@
 
         <% if @presence == 1 %>
           <form action="/bus/book_tickets/<%=@bus_main.id%>" method="get">
-          <emnput type="hidden" name="booking_user" value=<%= @user.id %>>
+          <input type="hidden" name="booking_user" value="<%= @user.id %>">
           <button class="lbus_bkticket" type="submit">
             Book Tickets
           </button>
