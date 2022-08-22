@@ -18,11 +18,11 @@
             <a href="/home" class="list_bus_nav_links" >Home</a>
         </li>
 
-<% elsif @presence == 1 %>
+<% elsif %>
 
-
+<% if @presence == 1%>
            <% if @user.role == "admin"%>
-            <div class="home_admin_dropdown" id="home_admin_dropdown">
+                 <div class="home_admin_dropdown" id="home_admin_dropdown">
                                                 <ul>
                                                     <li class="user_name_drop_button">
                                                         <%= @user.username %>
@@ -42,26 +42,26 @@
                 </button>
 
             </li>
-            </li>
-            <li>
-            <a href="/buses/index" class="list_bus_nav_links" id="list_bus_active">List all Bus</a>
+                  <li>
+            <a href="/buses/index" class="home_nav_links"  id="home_active">List all Bus</a>
         </li>
         <li>
             <a href="/user_bookings/<%=@user.id%>" class="home_nav_links">My bookings</a>
         </li>
         <li>
-            <a href="/service" class="list_bus_nav_links" >Service</a>
+            <a href="/service" class="home_nav_links" >Service</a>
         </li>
         <li>
-            <a href="/about" class="list_bus_nav_links">About</a>
+            <a href="/about" class="home_nav_links">About</a>
         </li>
         <li>
-            <a href="/home" class="list_bus_nav_links">Home</a>
+            <a href="/home" class="home_nav_links">Home</a>
         </li>
-
 
 
             <% end %>
+            <% end %>
+
 
 
         <% else %>
