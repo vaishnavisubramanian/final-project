@@ -21,7 +21,7 @@
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
             <input name="booking_detail_id" type="hidden" value=<%=@booking_detail%>>
-            <input placeholder="Card Number" type="password" class="lbus_card_number" name="card_number" maxlength="16" minlength="16" required/>
+            <input placeholder="Card Number" type="number" class="lbus_card_number" name="card_number"  required/>
             <br>
             <input placeholder="Cardholder Name" type="text" class="lbus_card_holder_name" name="card_holder_name" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" minlength="3" maxlength="255" required/>
             <br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_19_162253) do
+ActiveRecord::Schema.define(version: 2022_08_22_043732) do
 
   create_table "booking_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "seats_wanted"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2022_08_19_162253) do
   end
 
   create_table "payment_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "card_number"
     t.string "card_holder_name"
     t.integer "month"
     t.integer "year"
@@ -63,19 +62,8 @@ ActiveRecord::Schema.define(version: 2022_08_19_162253) do
     t.bigint "booking_detail_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["booking_detail_id"], name: "index_payment_details_on_booking_detail_id"
-  end
-
-  create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "card_number"
-    t.string "card_holder_name"
-    t.integer "month"
-    t.integer "year"
-    t.integer "cvv"
-    t.bigint "booking_details_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["booking_details_id"], name: "index_payments_on_booking_details_id"
+    t.index ["booking_detail_id"], name: "index_payment_details_on_booking_detail_id"
   end
 
   create_table "places", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -99,5 +87,4 @@ ActiveRecord::Schema.define(version: 2022_08_19_162253) do
   add_foreign_key "bus_shifts", "places", column: "from_location_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "bus_shifts", "places", column: "to_location_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "payment_details", "booking_details"
-  add_foreign_key "payments", "booking_details", column: "booking_details_id"
 end

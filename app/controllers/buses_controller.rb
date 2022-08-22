@@ -142,7 +142,14 @@ class BusesController < ApplicationController
     if number_of_seats_available.to_i >= params[:seats_wanted].to_i
       booking_detail = BookingDetail.new(bus_id: params[:bus_id], bus_shift_id: params[:bus_shift_id],
                                          seats_wanted: params[:seats_wanted], main_passenger_name: params[:main_passenger_name], age: params[:age],
-                                         phone_number: params[:phone_number],user_id: @booking_user)
+                                         phone_number: params[:phone_number],user_id: current_user.id)
+      puts params[:bus_id]
+      puts params[:bus_shift_id]
+      puts params[:seats_wanted]
+      puts params[:main_passenger_name]
+      puts params[:age]
+      puts params[:phone_number]
+      puts current_user.id
       if booking_detail.save
         @booking_detail = booking_detail.id
         puts "ttttttttttttt"

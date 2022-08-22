@@ -34,28 +34,26 @@
                                                 </ul>
                                             </div>
 
-                       <li>
-
+            <li>
                 <button id="home_profile_icon_2">
                     <%= image_tag 'pola_profile.png', alt:'icon', class:'home_pola_profile_2', onclick:'dropdown()' %>
                 </button>
-
             </li>
-                  <li>
-            <a href="/buses/index" class="home_nav_links">List all Bus</a>
-        </li>
-        <li>
-            <a href="/user_bookings/<%=@user.id%>" class="home_nav_links"  id="home_active">My bookings</a>
-        </li>
-        <li>
-            <a href="/service" class="home_nav_links">Service</a>
-        </li>
-        <li>
-            <a href="/about" class="home_nav_links">About</a>
-        </li>
-        <li>
-            <a href="/home" class="home_nav_links">Home</a>
-        </li>
+            <li>
+                <a href="/buses/index" class="home_nav_links">List all Bus</a>
+            </li>
+            <li>
+                <a href="/user_bookings/<%=@user.id%>" class="home_nav_links"  id="home_active">My bookings</a>
+            </li>
+            <li>
+                <a href="/service" class="home_nav_links">Service</a>
+            </li>
+            <li>
+                <a href="/about" class="home_nav_links">About</a>
+            </li>
+            <li>
+                <a href="/home" class="home_nav_links">Home</a>
+            </li>
 
 
             <% end %>
@@ -114,6 +112,7 @@
 
 
      <div class="list_bus_div">
+     <% if @bookings.length!= 0%>
         <% @bookings.each do |booking| %>
       <div class="book_tickets_single">
 
@@ -208,12 +207,17 @@
           <%= @bus_shift.fare %>
         </p>
 
-        <a href="/bookings/<%= booking.id %>" data-method="delete" class="book_tickets_cancel_ticket">Cancel bookings</a>
+        <a href="/bookings/<%=booking.id%>" data-method="delete" class="book_tickets_cancel_ticket" onclick="cancelTicket(<%=booking.id%>)">Cancel bookings</a>
 
         </div>
 
         <% end%>
       </div>
+      <% else %>
+      <img src="<%=asset_path 'bus travel-1.png' %>" class="my_bk_no_bookings" alt="icon">
+      <p class="my_bk_no_bookings_text">No bookings yet</p>
+
+      <% end %>
 
 
 
@@ -254,5 +258,9 @@
                     myDropdown.style.display = "none";
                 }
             }
+        }
+        function cancelTicket(booking_id){
+            alert('Are you sure? Do you want to cancel this ticket?');
+            window.location.href=``;
         }
 </script>
