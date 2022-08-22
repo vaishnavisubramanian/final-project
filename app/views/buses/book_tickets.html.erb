@@ -12,7 +12,7 @@
                                 <% if @bus_main.number_of_seats - @count > 0%>
                                <p class="lbus_seats_avail" id="lbus_seats_avail">
                                 Number of seats available - <%= @bus %>
-                                <span class="lbus_close1" onclick="cross()">&times;</span>
+                                <%# <span class="lbus_close1" onclick="cross()">&times;</span> %>
 
                             </p><br>
                              <form action="/book/bus" method="post">
@@ -28,7 +28,7 @@
                             <button onclick="overlaysubmit()" type="submit" class="lbus_proceed_btn">Proceed to pay</button>
                         </form>
                         <% else%>
-                        <span class="lbus_close3" onclick="cross()">&times;</span>
+                        <%# <span class="lbus_close3" onclick="cross()">&times;</span> %>
                            <p class="lbus_none">No seats available</p>
                         <% end %>
                         </div>
