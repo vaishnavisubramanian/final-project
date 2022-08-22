@@ -72,3 +72,18 @@
     border-radius: 10px;
     height: 565px;
 }
+
+.my_bk_no_bookings {
+    width: 450px;
+    height: 300px;
+    margin-left: 700px;
+    margin-top: 170px;
+}
+
+.my_bk_no_bookings_text {
+    color: #37075D;
+    text-align: center;
+    font-size: 130%;
+    font-weight: 800;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

@@ -155,7 +155,7 @@
 
         <div class="list_bus_review">
             5
-            <em> class="fa-solid fa-star"></em>
+            <i class="fa-solid fa-star"></i>
         </div>
 
         <div class="list_bus_left">
@@ -164,7 +164,7 @@
           </p>
 
           <p class="list_bus_depature_time">
-              <%= @bus_shift.departure_time.strftime("%i:%M %p") %>
+              <%= @bus_shift.departure_time.strftime("%I:%M %p") %>
           </p>
 
           <p class="list_bus_from_place">
@@ -180,7 +180,7 @@
           </p>
 
           <p class="list_bus_arrival_time">
-              <%= @bus_shift.arrival_time.strftime("%i:%M %p") %>
+              <%= @bus_shift.arrival_time.strftime("%I:%M %p") %>
           </p>
 
           <p class="list_bus_to_place">
@@ -196,15 +196,15 @@
         </p>
 
          <p class="book_tickets_passenger_name">
-            Seat number : <%= booking.main_passenger_name %>
+            Seat number : 1
         </p>
 
          <p class="book_tickets_passenger_name">
-            Date of journey : <%= booking.main_passenger_name %>
+            Date of journey : 24.08.2022
         </p>
 
         <p class="book_tickets_fare">
-          iNR
+          INR
           <%= @bus_shift.fare %>
         </p>
 
@@ -244,12 +244,12 @@
 
 <script>
         function dropdown() {
-            document.getElementByid("home_admin_dropdown").style.display = "block";
+            document.getElementById("home_admin_dropdown").style.display = "block";
         }
 
         window.onclick = function(e) {
             if (!e.target.matches('.home_pola_profile_2')) {
-                var myDropdown = document.getElementByid("home_admin_dropdown");
+                var myDropdown = document.getElementById("home_admin_dropdown");
                 if (myDropdown.style.display = "block") {
                     myDropdown.style.display = "none";
                 }
